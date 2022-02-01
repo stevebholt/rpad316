@@ -121,7 +121,7 @@ histogram hw_tot2
 ```
 That code will generate a figure that looks like:
 
-[Distribution of Homework Time](http://stevebholt.github.io/rpad316/assets/images/histogram.png)
+![Distribution of Homework Time](http://stevebholt.github.io/rpad316/assets/images/histogram.png)
 
 To demonstrate the power of even just examining data descriptively in Stata, let's look at a histogram by gender.
 
@@ -130,7 +130,7 @@ twoway (histogram weekly_hw if male==1, fcolor(blue) lcolor(blue) discrete)
 (histogram weekly_hw if male == 0, lcolor(red) fcolor(none) discrete),
 legend(order(1 "Male" 2 "Female" ))
 ```
-[Distribution of Homework Time](http://stevebholt.github.io/rpad316/assets/images/fancyhistogram.png)
+![Distribution of Homework Time](http://stevebholt.github.io/rpad316/assets/images/fancyhistogram.png)
 
 Finally, we are going to look at the summary statistics, which includes the mean and the standard deviation, of homework time in minutes per day and hours per week for the full sample, for boys, and for girls.
 
