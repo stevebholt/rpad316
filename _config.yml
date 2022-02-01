@@ -57,7 +57,7 @@ plugins:
 
 author:
   name   : "Stephen B. Holt"
-  avatar : "/assets/images/profile.png
+  avatar : "/assets/images/profile.png"
   bio    : "Assistant Professor of Public Management, University at Albany, SUNY"
   links:
     - label: "Website"
