@@ -1,6 +1,5 @@
 ---
 title: "Class Lab 1"
-date: 2022-31-01
 permalink: /labs/class-lab-1/
 ---
 Class Lab 1
