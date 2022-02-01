@@ -16,7 +16,7 @@ In Stata, the basic structure of a command is: `command variable [conditions], o
 
 Let's get to work on some examples. Let's drop the existing `hhincome` variable and recreate it from scratch. First, we can scroll down to the bottom of the variables list in the top right corner of our Stata window:
 
-![Variable List Before Drop](http://stevebholt.github.io/rpad316/assets/images/varbefore.png)
+![Variable List Before Drop](http://stevebholt.github.io/rpad316/assets/images/varbefore.PNG)
 
 and see that `hhincome` is the last variable in the dataset. Let's delete it using the `drop` command.
 
@@ -26,7 +26,7 @@ drop hhincome
 
 Now we can see that it is gone from our variables list:
 
-![Variable List After Drop](http://stevebholt.github.io/rpad316/assets/images/varafter.png)
+![Variable List After Drop](http://stevebholt.github.io/rpad316/assets/images/varafter.PNG)
 
 Now, to demonstrate how creating and coding variables works, we are going to create a categorical variable that groups all the different household income brackets we currently have as indicator variables. First, we will create a new variable and we will set it's value as "missing." In Stata, missing is signified using the `.` symbol.
 
@@ -36,11 +36,11 @@ gen hhincome = .
 
 We should see a message that 7388 missing values have been generated, and `hhincome` should reappear at the bottom of our variables list:
 
-![Variable List After Generating A New Variable](http://stevebholt.github.io/rpad316/assets/images/varbefore.png)
+![Variable List After Generating A New Variable](http://stevebholt.github.io/rpad316/assets/images/varbefore.PNG)
 
-Clicking on the browse icon (![Browse Icon](http://stevebholt.github.io/rpad316/assets/images/browse.png)) will pull up a spreadheet-like display of our data. Scrolling all the way to the right of the spreadsheet should reveal our new variable column, full of empty space:
+Clicking on the browse icon (![Browse Icon](http://stevebholt.github.io/rpad316/assets/images/browse.PNG)) will pull up a spreadheet-like display of our data. Scrolling all the way to the right of the spreadsheet should reveal our new variable column, full of empty space:
 
-![Backend View of Dataset In Stata](http://stevebholt.github.io/rpad316/assets/images/data.png)
+![Backend View of Dataset In Stata](http://stevebholt.github.io/rpad316/assets/images/data.PNG)
 
 Then we are going to tell Stata to change the value of that variable to a different number for each category of household income. Note that the second part of the command has a double equal sign.
 
@@ -56,7 +56,7 @@ replace hhincome = 7 if inc150p == 1
 
 Now we have all of our categories coded into the same variable. When we return to browsing the data and scroll to the `hhincome` column, we should see:
 
-![Backend View of Dataset In Stata](http://stevebholt.github.io/rpad316/assets/images/data_step2.png)
+![Backend View of Dataset In Stata](http://stevebholt.github.io/rpad316/assets/images/data_step2.PNG)
 
 To keep ourselves sane, let's go ahead and label the new variable and label the categories so we know what they mean later.
 
@@ -69,13 +69,13 @@ label val hhincome inccats
 
 First, after running the first line of code above, `label var`, the variable list should be showing `hhincome` now looks something like this:
 
-![New Variable Look](http://stevebholt.github.io/rpad316/assets/images/varlabel.png)
+![New Variable Look](http://stevebholt.github.io/rpad316/assets/images/varlabel.PNG)
 
 See how much clearer that label is for us? The label will also become the default in some tables and graphs, so it will ease the burden on us over time having our variables properly labeled.
 
 The second two lines of code tell Stata to create a value label scheme that defines each category with a more informative label. In our case, this is telling Stata that category 1 includes people in households earning \$20,000 or less and so on. The final line of code, `label val`, tells Stata to apply that value label scheme to our newly created variable, `hhincome`. The final results should look something like this:
 
-![New Variable Look in the Backend](http://stevebholt.github.io/rpad316/assets/images/data_step3.png)
+![New Variable Look in the Backend](http://stevebholt.github.io/rpad316/assets/images/data_step3.PNG)
 
 Now it's time to start finding ways to communicate our data in ways that are clear and readily digestible. We will start with a pie chart. Pie charts can help summarize categorical variables, like the one we are using for household income, into easy to understand proportions.
 
