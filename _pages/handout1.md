@@ -2,8 +2,7 @@
 title: "Class Lab 1"
 permalink: /labs/class-lab-1/
 ---
-Class Lab 1
-======
+
 # Introduction to Using Stata
 Let's start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. But before we begin, we will set up a .log file. A log file tracks every command we enter and all of the output those commands produce. They are very handy tools that can keep track of what you've done and how you did it. Researchers generally use .logs for record keeping purposes so that they can be transparent about their analysis later on down the road. Setting up a log file is easy. You simply tell Stata to start a .log and tell Stata where you would like that log to be stored.
 
