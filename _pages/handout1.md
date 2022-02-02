@@ -73,7 +73,7 @@ First, after running the first line of code above, `label var`, the variable lis
 
 See how much clearer that label is for us? The label will also become the default in some tables and graphs, so it will ease the burden on us over time having our variables properly labeled.
 
-The second two lines of code tell Stata to create a value label scheme that defines each category with a more informative label. In our case, this is telling Stata that category 1 includes people in households earning \$20,000 or less and so on. The final line of code, `label val`, tells Stata to apply that value label scheme to our newly created variable, `hhincome`. The final results should look something like this:
+The second two lines of code tell Stata to create a value label scheme that defines each category with a more informative label. In our case, this is telling Stata that category 1 includes people in households earning $20,000 or less and so on. The final line of code, `label val`, tells Stata to apply that value label scheme to our newly created variable, `hhincome`. The final results should look something like this:
 
 ![New Variable Look in the Backend](http://stevebholt.github.io/rpad316/assets/images/data_step3.PNG)
 
@@ -90,7 +90,7 @@ That code will generate a figure that looks like:
 
 You may notice that my graphs have different colors and style than the default graphs created by Stata. Stata is a powerful and flexible tool that allows you to set default styles for your graphics that meet your needs and preferences. The more important thing is to make sure the pie chart proportions match mine.
 
-Note that the value labels can be changed to match their meaning. That is, we can set 1 to be read by Stata as `"$<=$20K"` and so on for each category. Stata will then use this information automatically to generate appropriate labels in any graphs and tables using that variable. A useful habit to get into early on is to create labels in your .do files in a separate section before you start running your analysis. Stata is a powerful tool for analysis and keeping your code and data organized and clean can minimize how much you need to edit your code down the line. Here, we can look at the same information in a bar graph, which conveniently also provides you the basic code for a bar graph in Stata:
+Note that the value labels can be changed to match their meaning. That is, we can set 1 to be read by Stata as `"<=20K"` and so on for each category. Stata will then use this information automatically to generate appropriate labels in any graphs and tables using that variable. A useful habit to get into early on is to create labels in your .do files in a separate section before you start running your analysis. Stata is a powerful tool for analysis and keeping your code and data organized and clean can minimize how much you need to edit your code down the line. Here, we can look at the same information in a bar graph, which conveniently also provides you the basic code for a bar graph in Stata:
 
 ```stata
 graph bar (count), over(hhincome)
