@@ -1,6 +1,7 @@
 ---
 title: "Class Lab 1"
 permalink: /labs/class-lab-1/
+toc: true
 ---
 
 # Introduction to Using Stata
@@ -12,7 +13,11 @@ log using "C:\\folder\newlog.log" , replace
 
 The `, replace` at the end of the command is important. It means anytime you run this .do file, it will update and overwrite the previous log file. This is a handy way to keep from having too many logs and losing track of them.
 
+## Commands in Stata
+
 In Stata, the basic structure of a command is: `command variable [conditions], options`. The command is generally telling Stata what you would like Stata to do, such as create a new variable or make a graph. The second part, variable, is telling Stata the information to which you want to apply the command, such as calculating some statistics regarding a specific variable or graphing a variable in a particular way. The third part, `[conditions]`, refers to potential instructions for Stata to only include observations that meet a specific condition in the statistic calculation or graph. This is in square brackets to indicate that it will not always be used, but when it is, it will typically be the third part of the command. Finally, the fourth part is everything after the comma. In Stata, a comma tells Stata that the command portion of the code is done, and everything after the comma is going to provide (optional) instructions for how you would like the command run. For example, it could be requesting additional statistics to be calculated or specifying how a graph should look. The comma tells Stata "I am done listing variables and conditions for this command and will now give you some detailed instructions."
+
+## Working with Variables
 
 Let's get to work on some examples. Let's drop the existing `hhincome` variable and recreate it from scratch. First, we can scroll down to the bottom of the variables list in the top right corner of our Stata window:
 
@@ -77,6 +82,8 @@ The second two lines of code tell Stata to create a value label scheme that defi
 
 ![New Variable Look in the Backend](http://stevebholt.github.io/rpad316/assets/images/data_step3.PNG)
 
+## Making Simple Graphs
+
 Now it's time to start finding ways to communicate our data in ways that are clear and readily digestible. We will start with a pie chart. Pie charts can help summarize categorical variables, like the one we are using for household income, into easy to understand proportions.
 
 ```stata
@@ -131,6 +138,8 @@ twoway (histogram weekly_hw if male==1, fcolor(blue) lcolor(blue) discrete)
 legend(order(1 "Male" 2 "Female" ))
 ```
 ![Distribution of Homework Time](http://stevebholt.github.io/rpad316/assets/images/fancyhistogram.png)
+
+## Summarizing Data
 
 Finally, we are going to look at the summary statistics, which includes the mean and the standard deviation, of homework time in minutes per day and hours per week for the full sample, for boys, and for girls.
 
