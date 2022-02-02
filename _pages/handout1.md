@@ -231,3 +231,5 @@ And always remember to include a line in your code that closes your log file.
 ```stata
 log close
 ```
+
+The data for this class activity can be found [here](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0).
