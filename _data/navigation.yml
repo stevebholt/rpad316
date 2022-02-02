@@ -5,3 +5,7 @@ main:
     url: /about/
   - title: "Labs"
     url: /labs/
+  - title: "Lectures"
+    url: /lectures/    
+  - title: "Assignments"
+    url: /assignments/    
