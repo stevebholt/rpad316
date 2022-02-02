@@ -4,7 +4,7 @@ permalink: /labs/class-lab-1/
 ---
 
 # Introduction to Using Stata
-Let's start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. But before we begin, we will set up a .log file. A log file tracks every command we enter and all of the output those commands produce. They are very handy tools that can keep track of what you've done and how you did it. Researchers generally use .logs for record keeping purposes so that they can be transparent about their analysis later on down the road. Setting up a log file is easy. You simply tell Stata to start a .log and tell Stata where you would like that log to be stored.
+Let's start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. The [data](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0) used in this class exercise comes from the American Time Use Survey[^bignote], which I have used in my own research (you can read it [here](https://stevebholt.github.io/rpad316/assets/documents/GershensonHoltER.pdf)). But before we begin, we will set up a .log file. A log file tracks every command we enter and all of the output those commands produce. They are very handy tools that can keep track of what you've done and how you did it. Researchers generally use .logs for record keeping purposes so that they can be transparent about their analysis later on down the road. Setting up a log file is easy. You simply tell Stata to start a .log and tell Stata where you would like that log to be stored.
 
 ```stata
 log using "C:\\folder\newlog.log" , replace
@@ -233,3 +233,5 @@ log close
 ```
 
 The data for this class activity can be found [here](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0).
+
+[^bignote]: The American Time Use Survey (ATUS) is a nationally representative sample of Americans aged 15 and up. It is collected cross-sectionally (that is, with new respondents) every year. The ATUS collected time diary data from a person from each household that captures how respondents spent their time over the previous 24-hrs. It is tied to a subsample of the Current Population Survey (CPS), which allows researchers to examine a rich set of individual and household characteristics.
