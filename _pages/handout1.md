@@ -5,7 +5,7 @@ toc: true
 ---
 
 # Introduction to Using Stata
-Let's start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. The [data](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0) used in this class exercise comes from the American Time Use Survey[^bignote], which I have used in my own research (you can read it [here](https://stevebholt.github.io/rpad316/assets/documents/GershensonHoltER.pdf)). 
+Let's start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. The [data](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0) used in this class exercise comes from the American Time Use Survey[^bignote], which I have used in my own research (you can read it [here](https://stevebholt.github.io/rpad316/assets/documents/GershensonHoltER.pdf)). But before we begin, let's get a brief tour of Stata and set up our workspace for a productive flow of our work.
 
 # Workflow in Stata
 Our workflow in Stata begins with good file structures and keeping our files organized. Approaches to this vary and if you continue to work in research or analysis, you will find approaches that work best for you. We will set up a simple file system that will help us stay organized for the purposes of this class. 
@@ -13,11 +13,14 @@ Our workflow in Stata begins with good file structures and keeping our files org
 ## Windows
 If you are working with a Windows computer, you will start by clicking on the File Explorer (![file explorer](http://stevebholt.github.io/rpad316/assets/images/fileexplorer.PNG)) icon in the bottom of your screen and in the USB drive or primary drive you will be using, create a folder for the class and subfolders for data, do files, logs, and output. 
 
-1. ![Select Drive](http://stevebholt.github.io/rpad316/assets/images/step1.PNG "Select the Drive for your class folder.")
+1. Select the Drive for your class folder. 
+![Select Drive](http://stevebholt.github.io/rpad316/assets/images/step1.PNG)
 
-2. ![Set Up Folder](http://stevebholt.github.io/rpad316/assets/images/step2.PNG "Set up a class folder in the drive you chose. Name it rpad316.")
+2. Set up a class folder in the drive you chose. Name it rpad316.
+![Set Up Folder](http://stevebholt.github.io/rpad316/assets/images/step2.PNG)
 
-3. ![Set Up Subfolders](http://stevebholt.github.io/rpad316/assets/images/folder_structure.PNG "In your class folder, set up a folder structure with these subfolders. Use the same names.")
+3. In your class folder, set up a folder structure with these subfolders. Use the same names.
+![Set Up Subfolders](http://stevebholt.github.io/rpad316/assets/images/folder_structure.PNG)
 
 Now, we are going to put the data for the class lab into our new data subfolder.
 
