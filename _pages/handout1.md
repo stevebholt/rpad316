@@ -5,13 +5,82 @@ toc: true
 ---
 
 # Introduction to Using Stata
-Let's start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. The [data](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0) used in this class exercise comes from the American Time Use Survey[^bignote], which I have used in my own research (you can read it [here](https://stevebholt.github.io/rpad316/assets/documents/GershensonHoltER.pdf)). But before we begin, we will set up a .log file. A log file tracks every command we enter and all of the output those commands produce. They are very handy tools that can keep track of what you've done and how you did it. Researchers generally use .logs for record keeping purposes so that they can be transparent about their analysis later on down the road. Setting up a log file is easy. You simply tell Stata to start a .log and tell Stata where you would like that log to be stored.
+Let's start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. The [data](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0) used in this class exercise comes from the American Time Use Survey[^bignote], which I have used in my own research (you can read it [here](https://stevebholt.github.io/rpad316/assets/documents/GershensonHoltER.pdf)). 
+
+# Workflow in Stata
+Our workflow in Stata begins with good file structures and keeping our files organized. Approaches to this vary and if you continue to work in research or analysis, you will find approaches that work best for you. We will set up a simple file system that will help us stay organized for the purposes of this class. 
+
+## Windows
+If you are working with a Windows computer, you will start by clicking on the File Explorer (![file explorer](http://stevebholt.github.io/rpad316/assets/images/fileexplorer.PNG)) icon in the bottom of your screen and in the USB drive or primary drive you will be using, create a folder for the class and subfolders for data, do files, logs, and output. 
+
+1. ![Select Drive](http://stevebholt.github.io/rpad316/assets/images/step1.PNG "Select the Drive for your class folder.")
+
+2. ![Set Up Folder](http://stevebholt.github.io/rpad316/assets/images/step2.PNG "Set up a class folder in the drive you chose. Name it rpad316.")
+
+3. ![Set Up Subfolders](http://stevebholt.github.io/rpad316/assets/images/folder_structure.PNG "In your class folder, set up a folder structure with these subfolders. Use the same names.")
+
+Now, we are going to put the data for the class lab into our new data subfolder.
+
+1. Open the data subfolder you just created and leave your file explorer open.
+2. In your web browser, where you are reading this, right-click on the "Labs" tab at the top of the page and select "Open in New Tab."
+3. Click "Data for Lab 1."
+4. Click the Download (![download](http://stevebholt.github.io/rpad316/assets/images/download.PNG)) button, select ["Save File"](http://stevebholt.github.io/rpad316/assets/images/downloadbox.PNG), and then click OK.
+5. In Firefox, click the [Blue Arrow](http://stevebholt.github.io/rpad316/assets/images/bluearrow.PNG) in the top right and then click on the folder icon next to "week1.zip." This will open your "Downloads" folder, which is the default place where Windows downloads files to your computer. Open "week1" and drag [class1.dta](http://stevebholt.github.io/rpad316/assets/images/class1dta.PNG) to your still open data subfolder.
+
+Now we are all set! Leave your class folder open in the file explorer for now because we will need it in a moment. Each week, when you are doing assignments or labs, download the data using the same process and move it to your data folder. We will use paths to this folder in our .do files so that we can save our output and document what we've done.
+
+## Macintosh
+
+
+## A Look Around Stata
+Now let's look around Stata for a moment and get a sense of the tool. To do this, open the data for Class Lab 1 that we just moved into our data folder. You should see a screen like [this](http://stevebholt.github.io/rpad316/assets/images/statascreen.PNG). You'll notice a few things. First, in the center of the screen is the output window of Stata 
+
+![Output Window](http://stevebholt.github.io/rpad316/assets/images/output_win.PNG)
+
+and this is where we will see the results of any and all analysis we do. It's a lovely view and you will come to love it as much as I do! Untold truths will be found in this screen and, if you continue down this road, you might be the first to see a brand new, scientific result in this vary view! Notice out in the center, there is already a `use "E:\rpad316\data\class1.dta"` command that has been run. `use` tells Stata to open a data set and the path (in my case `E:\rpad316\data\`) tells Stata where the data is stored and which data set (`class1.dta`) to open. Datasets in Stata are always `.dta` file types. Think of this as the same as `.doc` for word.
+
+Okay, off to the right, you can see the list of variables in this dataset.
+
+![Variables](http://stevebholt.github.io/rpad316/assets/images/variables.PNG)
+
+Here, there are two columns. One lists the variable name of each variable in the dataset. This is the equivalent of a column header in a spreadsheet and is what we use to tells Stata to do things with that particular variable. The second is the Label of each variable. Labels are more detailed, plain language descriptions of the variable, often to remind us what the variable is and how it is measured. You can also see in the bottom right corner a description of the data. Note that the description tells us that there are 7,388 observations in this dataset. 
+
+To the left, you can see a running record of the commands that we run.
+
+![History](http://stevebholt.github.io/rpad316/assets/images/history.PNG)
+
+Successful commands will appear in black (or in my case white) text while unsuccessful commands will appear in red. Unsuccessful commands simply means Stata hit an error because of an error in your code. Some notes on Stata code. First, Stata is a literalist - it will only do what you tell it to and will only do **exactly** what you tell Stata to do. If you enter the wrong code or spell something wrong, Stata will just stop and do nothing else because it's confused and has a sensitive soul. Second, Stata is case sensitive. When naming variables, use all lower case because in general, all commands and code in Stata will also be all lower case. You want to make your coding life as easy as possible and one way to avoid frustration is to name variables in a way that minimizes errors.
+
+Finally, we have the command window at the bottom. 
+
+![Command](http://stevebholt.github.io/rpad316/assets/images/command.PNG)
+
+The command window is one of the ways you can tell Stata to do various things. The other way is through .do files, which we will get to in just a moment. Anything you enter into the command window will generate some sort of output in the output window and be recorded in the history window. If you make a mistake and get an error, you can click on the errant command in the history window and it will automatically be filled into the command window for you and then you can correct the error.
+
+## Working in Stata
+In this class, and in general, it will be good for you to get used to working with `.do` files. In Stata, `.do` files are text files that include all of the code you are using in your project. A `.do` file can tell Stata what to do from start to finish and Stata will run every line of code in a `.do` file in order.[^bignote3] To start a `.do` file, go to the top and click the "New Do-File Editor" button (![dofile editor](http://stevebholt.github.io/rpad316/assets/images/dofileeditor.PNG)) and a [new .do file](http://stevebholt.github.io/rpad316/assets/images/newdo.PNG) will open. First, let's save this by going to "File" -> "Save As..." and save it in your class folder in the "do" subfolder. Name it "classlab1" so that you know what the do file does.
+
+Next, we are going to use the path to our file to set our command directory in Stata. For Windows users, getting the path is simple: go to the file explorer window where your class folder is open, click on the top bar in a space where there is no text, and you will see that the path is selected for you:
+
+![Path Example](http://stevebholt.github.io/rpad316/assets/images/paths.PNG)
+
+From there, you can use `CTRL + C` to copy the file path.
+
+Now, return to your do file. In the first line of your do file, enter the code `cd` and then paste the path to your class folder (`CTRL + V`). The full line should read:
 
 ```stata
-log using "C:\\folder\newlog.log" , replace
+cd E:\rpad316\
+```
+Your path may be different, but the last part should be `rpad316\`. The `cd` command tells Stata, "Okay, I am going to be working with files in this folder, so anytime I tell you to save or output something, use this as the initial path." This will make our lives easier going foward and as long as you have a good file structure (the one I walked through here), you can simply put this line of code at the beginning of every do file and be good to go. Finally, before we begin, we will also set up a .log file. A log file tracks every command we enter and all of the output those commands produce. They are very handy tools that can keep track of what you've done and how you did it. Researchers generally use .logs for record keeping purposes so that they can be transparent about their analysis later on down the road. Setting up a log file is easy. You simply tell Stata to start a .log and tell Stata where you would like that log to be stored.
+
+```stata
+log using "logs\lab1.log" , replace
 ```
 
-The `, replace` at the end of the command is important. It means anytime you run this .do file, it will update and overwrite the previous log file. This is a handy way to keep from having too many logs and losing track of them.
+First, the `log` command opens the log and the `using` command tells Stata where to create a log file to use as a log for what you're about to do. In the quotations, the "logs\" segment tells Stata to use the subfolder you set up in the class folder called "logs" (since we set up the command drive in the previous step, we only need to use the folder name!) and then the "lab1.log" tells Stata to create a file in that folder named "lab1" and to use it to log everything we do in our session. The `, replace` at the end of the command is important. It means anytime you run this .do file, it will update and overwrite the previous log file. This is a handy way to keep from having too many logs and losing track of them.
+
+**Tip:** When you are starting a new assignment or new lab, set up a new do file, save it in the .do folder, and copy and paste the `cd` code and the log code from your last do file. Then you just need to rename the log file in the code and you are ready to rumble.
+{: .notice--info}
 
 ## Commands in Stata
 
@@ -67,8 +136,7 @@ To keep ourselves sane, let's go ahead and label the new variable and label the 
 
 ```stata
 label var hhincome "Household income"
-label define inccats 1 "<=20K" 2 "20-40K" 3 "40-60K" 4 "60-75K" 5 "75-100K" 6 "100-150K" 
-	7 ">=150K"
+label define inccats 1 "<=20K" 2 "20-40K" 3 "40-60K" 4 "60-75K" 5 "75-100K" 6 "100-150K" 7 ">=150K"
 label val hhincome inccats
 ```
 
@@ -133,9 +201,7 @@ That code will generate a figure that looks like:
 To demonstrate the power of even just examining data descriptively in Stata, let's look at a histogram by gender.
 
 ```stata
-twoway (histogram weekly_hw if male==1, fcolor(blue) lcolor(blue) discrete)
-(histogram weekly_hw if male == 0, lcolor(red) fcolor(none) discrete),
-legend(order(1 "Male" 2 "Female" ))
+twoway (histogram weekly_hw if male==1, fcolor(blue) lcolor(blue) discrete) (histogram weekly_hw if male == 0, lcolor(red) fcolor(none) discrete), legend(order(1 "Male" 2 "Female" ))
 ```
 ![Distribution of Homework Time](http://stevebholt.github.io/rpad316/assets/images/fancyhistogram.png)
 
