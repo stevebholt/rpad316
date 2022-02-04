@@ -33,7 +33,7 @@ Now, we are going to put the data for the class lab into our new data subfolder.
 Now we are all set! Leave your class folder open in the file explorer for now because we will need it in a moment. Each week, when you are doing assignments or labs, download the data using the same process and move it to your data folder. We will use paths to this folder in our .do files so that we can save our output and document what we've done.
 
 ## Macintosh
-
+For Mac users, I am in the process of hunting down a Mac to create the step-by-step screenshots to walk you through this process. However, the process is generally the same: create a class folder (rpad316) and the same four subfolders (do, data, output, and logs). Store data in the data folder after downloading it from the course site. The primary difference is finding paths for using in your .do files (see below). I found this [guide](https://www.howtogeek.com/721126/3-ways-to-see-the-current-folder-path-on-mac/) helpful for finding paths on Macs; once you have it, you can copy and paste it into your first .do file, as outlined below, and then copy from there in future .do files.
 
 ## A Look Around Stata
 Now let's look around Stata for a moment and get a sense of the tool. To do this, open the data for Class Lab 1 that we just moved into our data folder. You should see a screen like [this](http://stevebholt.github.io/rpad316/assets/images/statascreen.PNG). You'll notice a few things. First, in the center of the screen is the output window of Stata 
