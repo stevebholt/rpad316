@@ -356,7 +356,6 @@ tabstat hw_tot weekly_hw, statistics(mean sd)
 save "data\class1.dta", replace
 
 log close
-
 ```
 
 [^bignote]: The American Time Use Survey (ATUS) is a nationally representative sample of Americans aged 15 and up. It is collected cross-sectionally (that is, with new respondents) every year. The ATUS collected time diary data from a person from each household that captures how respondents spent their time over the previous 24-hrs. It is tied to a subsample of the Current Population Survey (CPS), which allows researchers to examine a rich set of individual and household characteristics.
