@@ -40,7 +40,7 @@ Now let's look around Stata for a moment and get a sense of the tool. To do this
 
 ![Output Window](http://stevebholt.github.io/rpad316/assets/images/output_win.PNG)
 
-and this is where we will see the results of any and all analysis we do. It's a lovely view and you will come to love it as much as I do! Untold truths will be found in this screen and, if you continue down this road, you might be the first to see a brand new, scientific result in this vary view! Notice out in the center, there is already a `use "E:\rpad316\data\class1.dta"` command that has been run. `use` tells Stata to open a data set and the path (in my case `E:\rpad316\data\`) tells Stata where the data is stored and which data set (`class1.dta`) to open. Datasets in Stata are always `.dta` file types. Think of this as the same as `.doc` for word.
+and this is where we will see the results of any and all analysis we do. It's a lovely view and you will come to love it as much as I do! Untold truths will be found in this screen and, if you continue down this road, you might be the first to see a brand new, scientific result in this very view! Notice out in the center, there is already a `use "E:\rpad316\data\class1.dta"` command that has been run. `use` tells Stata to open a data set and the path (in my case `E:\rpad316\data\`) tells Stata where the data is stored and which data set (`class1.dta`) to open. Datasets in Stata are always `.dta` file types. Think of this as the same as `.doc` for word.
 
 Okay, off to the right, you can see the list of variables in this dataset.
 
