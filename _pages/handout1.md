@@ -72,12 +72,12 @@ From there, you can use `CTRL + C` to copy the file path.
 Now, return to your do file. In the first line of your do file, enter the code `cd` and then paste the path to your class folder (`CTRL + V`). The full line should read:
 
 ```stata
-cd E:\rpad316\
+cd "E:\rpad316\"
 ```
 Your path may be different, but the last part should be `rpad316\`. The `cd` command tells Stata, "Okay, I am going to be working with files in this folder, so anytime I tell you to save or output something, use this as the initial path." This will make our lives easier going foward and as long as you have a good file structure (the one I walked through here), you can simply put this line of code at the beginning of every do file and be good to go. Finally, before we begin, we will also set up a .log file. A log file tracks every command we enter and all of the output those commands produce. They are very handy tools that can keep track of what you've done and how you did it. Researchers generally use .logs for record keeping purposes so that they can be transparent about their analysis later on down the road. Setting up a log file is easy. You simply tell Stata to start a .log and tell Stata where you would like that log to be stored.
 
 ```stata
-log using "logs\lab1.log" , replace
+log using "logs\lab1.log", replace
 ```
 
 First, the `log` command opens the log and the `using` command tells Stata where to create a log file to use as a log for what you're about to do. In the quotations, the "logs\" segment tells Stata to use the subfolder you set up in the class folder called "logs" (since we set up the command drive in the previous step, we only need to use the folder name!) and then the "lab1.log" tells Stata to create a file in that folder named "lab1" and to use it to log everything we do in our session. The `, replace` at the end of the command is important. It means anytime you run this .do file, it will update and overwrite the previous log file. This is a handy way to keep from having too many logs and losing track of them.
@@ -85,7 +85,7 @@ First, the `log` command opens the log and the `using` command tells Stata where
 **Tip:** When you are starting a new assignment or new lab, set up a new do file, save it in the .do folder, and copy and paste the `cd` code and the log code from your last do file. Then you just need to rename the log file in the code and you are ready to rumble.
 {: .notice--info}
 
-## Commands in Stata
+# Commands in Stata
 
 In Stata, the basic structure of a command is: `command variable [conditions], options`. The command is generally telling Stata what you would like Stata to do, such as create a new variable or make a graph. The second part, variable, is telling Stata the information to which you want to apply the command, such as calculating some statistics regarding a specific variable or graphing a variable in a particular way. The third part, `[conditions]`, refers to potential instructions for Stata to only include observations that meet a specific condition in the statistic calculation or graph. This is in square brackets to indicate that it will not always be used, but when it is, it will typically be the third part of the command. Finally, the fourth part is everything after the comma. In Stata, a comma tells Stata that the command portion of the code is done, and everything after the comma is going to provide (optional) instructions for how you would like the command run. For example, it could be requesting additional statistics to be calculated or specifying how a graph should look. The comma tells Stata "I am done listing variables and conditions for this command and will now give you some detailed instructions."
 
@@ -159,7 +159,7 @@ Now it's time to start finding ways to communicate our data in ways that are cle
 
 ```stata
 graph pie tucaseidr, over(hhincome)
-graph export "C:\\piegraph.png", as(png) replace
+graph export "output\piegraph.png", as(png) replace
 ```
 
 That code will generate a figure that looks like:
@@ -172,7 +172,7 @@ Note that the value labels can be changed to match their meaning. That is, we ca
 
 ```stata
 graph bar (count), over(hhincome)
-graph export "C:\\bargraph.png", as(png) replace
+graph export "output\bargraph.png", as(png) replace
 ```
 
 That code will generate a figure that looks like:
@@ -183,7 +183,7 @@ To demonstrate why bar graphs are almost always going to be better than pie char
 
 ```stata
 graph bar (mean) hw_tot, over(hhincome)
-graph export "C:\\bargraph2.png", as(png) replace
+graph export "output\bargraph2.png", as(png) replace
 ```
 
 That code will generate a figure that looks like:
@@ -311,6 +311,53 @@ log close
 ```
 
 The data for this class activity can be found [here](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0).
+
+Your first .do file should look like this:
+```stata
+cd "E:\rpad316\"
+use "data\class1.dta"
+log using "logs\lab1.log", replace
+drop hhincome
+gen hhincome = .
+replace hhincome = 1 if loinc == 1
+replace hhincome = 2 if inc2040 == 1
+replace hhincome = 3 if inc4060 == 1
+replace hhincome = 4 if inc6075 == 1
+replace hhincome = 5 if inc75100 == 1
+replace hhincome = 6 if inc100150 == 1
+replace hhincome = 7 if inc150p == 1
+
+label var hhincome "Household income"
+label define inccats 1 "<=20K" 2 "20-40K" 3 "40-60K" 4 "60-75K" 5 "75-100K" 6 "100-150K" 7 ">=150K"
+label val hhincome inccats
+
+graph pie tucaseidr, over(hhincome)
+graph export "output\piegraph.png", as(png) replace
+
+graph bar (count), over(hhincome)
+graph export "output\bargraph.png", as(png) replace
+
+graph bar (mean) hw_tot, over(hhincome)
+graph export "output\bargraph2.png", as(png) replace
+
+histogram hw_tot2
+
+twoway (histogram weekly_hw if male==1, fcolor(blue) lcolor(blue) discrete) (histogram weekly_hw if male == 0, lcolor(red) fcolor(none) discrete), legend(order(1 "Male" 2 "Female" ))
+
+sum hw_tot weekly_hw
+
+sum hw_tot weekly_hw if male == 1
+sum hw_tot weekly_hw if male == 0
+
+sum hw_tot weekly_hw, detail
+
+tabstat hw_tot weekly_hw, statistics(mean sd)
+
+save "data\class1.dta", replace
+
+log close
+
+```
 
 [^bignote]: The American Time Use Survey (ATUS) is a nationally representative sample of Americans aged 15 and up. It is collected cross-sectionally (that is, with new respondents) every year. The ATUS collected time diary data from a person from each household that captures how respondents spent their time over the previous 24-hrs. It is tied to a subsample of the Current Population Survey (CPS), which allows researchers to examine a rich set of individual and household characteristics.
 
