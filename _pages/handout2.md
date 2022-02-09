@@ -2,6 +2,7 @@
 title: "Class Lab 2"
 permalink: /labs/class-lab-2/
 toc: true
+mathjax: true
 ---
 
 # Setting Up
@@ -126,9 +127,9 @@ graph export "output\scatter_c2.png", as(png) replace
 Finally, let's go ahead and calculate the r, sometimes referred to as the Pearson's r for Karl Pearson who developed the measure in 1948 (informed by previous work), using Stata. While you will do this by hand and show your work in your homework, in Stata, calculating the correlation coefficient between two variables is quick and easy.
 
 As we noted in class, the Pearson's R comes from the formula:
-```math
-r = (1/n-1)\sum^n_{i=1}((x_i - x-bar/s)(y_i - y-bar/s))
-```
+
+$ r = (1/n-1)\sum^n_{i=1}((x_i - x-bar/s)(y_i - y-bar/s)) $
+
 
 That's a lot to calculate, even ignoring that `s` means we have to calculate standard deviations! Thankfully, Stata makes this simply with the `pwcorr` command. Here, we will tell Stata to estimate the R coefficient that describes the correlation between cities' average education levels and average earnings.
 
