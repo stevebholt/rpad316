@@ -85,6 +85,7 @@ defaults:
       type: pages
     values:
       layout: single
+        {% include mathjax.html %}
       author_profile: true
 
 category_archive:
