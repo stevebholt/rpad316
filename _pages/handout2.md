@@ -128,8 +128,9 @@ Finally, let's go ahead and calculate the r, sometimes referred to as the Pearso
 
 As we noted in class, the Pearson's R comes from the formula:
 
-$$ r = \dfrac{1}{n-1} \sum^n_{i=1} (\dfrac{x_i - \overline{x}}{s_x})(\dfrac{y_i - \overline{y}}{s_y}) $$
-
+```
+r = (1/n-1) \sum^n_{i=1} (x_i - x-bar/s_x)(y_i - y-bar/s_y}) 
+```
 
 That's a lot to calculate, even ignoring that `s` means we have to calculate standard deviations! Thankfully, Stata makes this simply with the `pwcorr` command. Here, we will tell Stata to estimate the R coefficient that describes the correlation between cities' average education levels and average earnings.
 
