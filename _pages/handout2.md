@@ -174,12 +174,12 @@ Here, for the relationship between average wages and average rent, we get an R c
 As always, we want to end our do file with `log close`. 
 
 [^bignote]: For those of you who are interested, dataset 2 was created using dataset 3. Using the commands below, I created variables that captured the city averages of some variables of interest.
-```stata
-sort met2013
-egen incwage_avg = mean(incwage), by(met2013)
-label var incwage_avg "Avg. wages in city"
-egen years_education_avg = mean(years_education), by(met2013)
-label var years_education_avg "Avg. education in city (in years)"
-by met2013: drop if _n > 1
-save "dataset2.dta", replace
-```
+	```stata
+	sort met2013
+	egen incwage_avg = mean(incwage), by(met2013)
+	label var incwage_avg "Avg. wages in city"
+	egen years_education_avg = mean(years_education), by(met2013)
+	label var years_education_avg "Avg. education in city (in years)"
+	by met2013: drop if _n > 1
+	save "dataset2.dta", replace
+	```
