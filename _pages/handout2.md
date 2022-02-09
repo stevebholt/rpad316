@@ -8,13 +8,13 @@ mathjax: true
 # Setting Up
 This week, we are going to revisit some of the commands and analysis that we did before and add a few new tools. Before starting, I downloaded the data and put both datasets in the the "data" subfolder of my "rpad316" folder I created in class lab 1. I will set my class folder as the drive that I will be working from in my .do file. Now, we are going to open a new Stata window - just open Stata on your computer. It should be empty with no data loaded and no variables listed in the upper right "Variables" viewer. In your fresh Stata window, open a new .do file (click ![dofile](http://stevebholt.github.io/rpad316/assets/images/dofileeditor.PNG)) and save your new .do file in your "do" subfolder with a recognizable name (e.g., "lab2"). Like in [Class Lab 1](http://stevebholt.github.io/rpad316/labs/class-lab-1/#working-in-stata), our first line in our do file will be telling Stata where to load data from and where to save output (i.e., our command drive).
 
-```stata
+```
 cd "E:\rpad316\"
 ```
 
 Remember, you'll want to replace the `E:\` above with the path to your own class folder. This simple practice of doing all of your analysis in a single project folder can help you save time in your code and reduces opportunities for errors. What the command does is it tells Stata to look for all files that you reference and save all files that you create in that folder. That way, instead of including the entire path in your code for each output command or each save command, you can simply list the subfolder and name the new file. You'll notice we are only working in a do file without any data loaded yet. Now, let's call up the data and start our log file.
 
-```stata
+```
 use "data\dataset3.dta"
 log using "logs\class2.log", replace
 ```
@@ -27,7 +27,7 @@ In this example, and your homework, we will be working with data from the Americ
 ## Review
 Let's start with a simple pie chart of the class of workers we have in the sample. This requires two variables - one that identifies the unit of observation and one that identifies the categories we'd like to see plotted into proportions of the sample. Here, in the ACS, the variable `caseid` provides a unique identifier for respondents, our unit of observation currently, and `classwkrd` provides a categorical variable of different classes of workers in our sample. Class of worker helps us better understand how many workers are working in different sectors of the economy. We can use those to create a pie chart just like we did in [Class Lab 1](https://stevebholt.github.io/rpad316/labs/class-lab-1/#making-simple-graphs):
 
-```stata
+```
 graph pie caseid, over(classwkrd)
 graph export "output\piegraph_c2.png", as(png) replace
 ```
@@ -38,7 +38,7 @@ Remember that a pie graph is plotting the percentage of observations in each cat
 
 Of course, a similar function - getting a sense of how many observations fall into each category in the class of worker variable - can be served in bar graphs, like we saw in Class Lab 1. Here, we would use a similar logic in our code:
 
-```stata
+```
 graph bar (count), over(classwkrd, label(angle(45)))
 graph export "output\bargraph_c2.png", as(png) replace
 ```
@@ -51,7 +51,7 @@ Notice here, I am not defining the units of observation to Stata. I am telling s
 
 Remember how we added two datasets to our data folder? Now, we are going to switch to a different dataset. This gives us an opportunity to learn how to code this kind of switch in our do files. Here, we are going to include three lines of code: one that tells Stata to save the current dateset, one that tells Stata to close out the current dataset, and one that tells Stata to use a new dataset.
 
-```stata
+```
 save "data\dataset3.dta", replace
 clear
 use "data\dataset2.dta"
@@ -60,7 +60,7 @@ The save command tells Stata to overwrite the previous version of `dataset3` and
 
 Let's look at a histogram of average wages in the cities in our dataset.
 
-```stata
+```
 histogram incwage_avg
 graph export "output\histograph_c2.png", as(png) replace
 ```
@@ -79,7 +79,7 @@ We can see that cities tend to have a pretty high level of average years of educ
 
 Now, let's look at the summary statistics of these two variables. Code: `sum incwage_avg years_education_avg, detail` for the output:
 
-```stata
+```
 
                      Avg. wages in city
 -------------------------------------------------------------
@@ -117,7 +117,7 @@ Now, let's look at the summary statistics of these two variables. Code: `sum inc
 
 Of course, we are more interested in the relationship between education and income. Do cities with more educated workforces have higher average wages? To do this, we are going to start with a scatterplot of these two variables. While plotting data points for 260 cities would be time consuming to do by hand, Stata makes our life easier. We can make scatterplots with the simple and intuitive command `scatter` with a command structure of `scatter var1 var2` where `var1` is the variable we want on the y-axis and `var2` is the variable we want on the x-axis. We are currently thinking about wages as our outcome from education and it is good to get in the habit of thinking about your outcome variable as your y-axis variable more generally. Let's make our scatterplot:
 
-```stata
+```
 scatter incwage_avg years_education_avg
 graph export "output\scatter_c2.png", as(png) replace
 ```
@@ -129,18 +129,18 @@ Finally, let's go ahead and calculate the r, sometimes referred to as the Pearso
 As we noted in class, the Pearson's R comes from the formula:
 
 ```
-r = (1/n-1) \sum^n_{i=1} (x_i - x-bar/s_x)(y_i - y-bar/s_y}) 
+r = (1/n-1) \sum^n_{i=1} (x_i - x-bar/s_x)(y_i - y-bar/s_y) 
 ```
 
 That's a lot to calculate, even ignoring that `s` means we have to calculate standard deviations! Thankfully, Stata makes this simply with the `pwcorr` command. Here, we will tell Stata to estimate the R coefficient that describes the correlation between cities' average education levels and average earnings.
 
-```stata
+```
 pwcorr incwage_avg years_education_avg
 ```
 
 ...and we will see this output:
 
-```stata
+```
 . pwcorr incwage_avg years_education_avg
 
              | incwag~g years_~g
@@ -163,7 +163,7 @@ We can see that the Pearson's R for education and wages is 0.63. An r coefficien
 
 We can use the same command to look at the correlation of multiple variables at once. Let's add rent to the mix (`pwcorr incwage_avg years_education_avg rent_avg`) to see how things look:
 
-```stata
+```
              | incwag~g years_~g rent_avg
 -------------+---------------------------
  incwage_avg |   1.0000 
@@ -176,7 +176,7 @@ Here, for the relationship between average wages and average rent, we get an R c
 As always, we want to end our do file with `log close`. 
 
 [^bignote]: For those of you who are interested, dataset 2 was created using dataset 3. Using the commands below, I created variables that captured the city averages of some variables of interest.
-	```stata
+	```
 	sort met2013
 	egen incwage_avg = mean(incwage), by(met2013)
 	label var incwage_avg "Avg. wages in city"

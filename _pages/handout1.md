@@ -71,12 +71,12 @@ From there, you can use `CTRL + C` to copy the file path.
 
 Now, return to your do file. In the first line of your do file, enter the code `cd` and then paste the path to your class folder (`CTRL + V`). The full line should read:
 
-```stata
+```
 cd "E:\rpad316\"
 ```
 Your path may be different, but the last part should be `rpad316\`. The `cd` command tells Stata, "Okay, I am going to be working with files in this folder, so anytime I tell you to save or output something, use this as the initial path." This will make our lives easier going foward and as long as you have a good file structure (the one I walked through here), you can simply put this line of code at the beginning of every do file and be good to go. Finally, before we begin, we will also set up a .log file. A log file tracks every command we enter and all of the output those commands produce. They are very handy tools that can keep track of what you've done and how you did it. Researchers generally use .logs for record keeping purposes so that they can be transparent about their analysis later on down the road. Setting up a log file is easy. You simply tell Stata to start a .log and tell Stata where you would like that log to be stored.
 
-```stata
+```
 log using "logs\lab1.log", replace
 ```
 
@@ -97,7 +97,7 @@ Let's get to work on some examples. Let's drop the existing `hhincome` variable 
 
 and see that `hhincome` is the last variable in the dataset. Let's delete it using the `drop` command.
 
-```stata
+```
 drop hhincome
 ```
 
@@ -107,7 +107,7 @@ Now we can see that it is gone from our variables list:
 
 Now, to demonstrate how creating and coding variables works, we are going to create a categorical variable that groups all the different household income brackets we currently have as indicator variables. First, we will create a new variable and we will set it's value as "missing." In Stata, missing is signified using the `.` symbol.
 
-```stata
+```
 gen hhincome = .
 ```
 
@@ -121,7 +121,7 @@ Clicking on the browse icon (![Browse Icon](http://stevebholt.github.io/rpad316/
 
 Then we are going to tell Stata to change the value of that variable to a different number for each category of household income. Note that the second part of the command has a double equal sign.
 
-```stata
+```
 replace hhincome = 1 if loinc == 1
 replace hhincome = 2 if inc2040 == 1
 replace hhincome = 3 if inc4060 == 1
@@ -137,7 +137,7 @@ Now we have all of our categories coded into the same variable. When we return t
 
 To keep ourselves sane, let's go ahead and label the new variable and label the categories so we know what they mean later.
 
-```stata
+```
 label var hhincome "Household income"
 label define inccats 1 "<=20K" 2 "20-40K" 3 "40-60K" 4 "60-75K" 5 "75-100K" 6 "100-150K" 7 ">=150K"
 label val hhincome inccats
@@ -157,7 +157,7 @@ The second two lines of code tell Stata to create a value label scheme that defi
 
 Now it's time to start finding ways to communicate our data in ways that are clear and readily digestible. We will start with a pie chart. Pie charts can help summarize categorical variables, like the one we are using for household income, into easy to understand proportions.
 
-```stata
+```
 graph pie tucaseidr, over(hhincome)
 graph export "output\piegraph.png", as(png) replace
 ```
@@ -170,7 +170,7 @@ You may notice that my graphs have different colors and style than the default g
 
 Note that the value labels can be changed to match their meaning. That is, we can set 1 to be read by Stata as `"<=20K"` and so on for each category. Stata will then use this information automatically to generate appropriate labels in any graphs and tables using that variable. A useful habit to get into early on is to create labels in your .do files in a separate section before you start running your analysis. Stata is a powerful tool for analysis and keeping your code and data organized and clean can minimize how much you need to edit your code down the line. Here, we can look at the same information in a bar graph, which conveniently also provides you the basic code for a bar graph in Stata:
 
-```stata
+```
 graph bar (count), over(hhincome)
 graph export "output\bargraph.png", as(png) replace
 ```
@@ -181,7 +181,7 @@ That code will generate a figure that looks like:
 
 To demonstrate why bar graphs are almost always going to be better than pie charts, we can modify our code for the bar graph just a bit and capture a comparison of average study time in each category of income.
 
-```stata
+```
 graph bar (mean) hw_tot, over(hhincome)
 graph export "output\bargraph2.png", as(png) replace
 ```
@@ -194,7 +194,7 @@ See, bar graphs can accommodate comparisons of one variable across different gro
 
 Remember that bar graphs are generally used to convey comparisons across groups of people in a clear and intuitive way. If you are instead interested in the distribution of one particular characteristic in your sample, you should use a histogram. Let's look at the `hw_tot2`, our variable measuring non-zero time spent on homework, in a histogram to get a sense of the distribution of homework time in our sample.
 
-```stata
+```
 histogram hw_tot2
 ```
 That code will generate a figure that looks like:
@@ -203,7 +203,7 @@ That code will generate a figure that looks like:
 
 To demonstrate the power of even just examining data descriptively in Stata, let's look at a histogram by gender.
 
-```stata
+```
 twoway (histogram weekly_hw if male==1, fcolor(blue) lcolor(blue) discrete) (histogram weekly_hw if male == 0, lcolor(red) fcolor(none) discrete), legend(order(1 "Male" 2 "Female" ))
 ```
 ![Distribution of Homework Time](http://stevebholt.github.io/rpad316/assets/images/fancyhistogram.png)
@@ -213,7 +213,7 @@ twoway (histogram weekly_hw if male==1, fcolor(blue) lcolor(blue) discrete) (his
 Finally, we are going to look at the summary statistics, which includes the mean and the standard deviation, of homework time in minutes per day and hours per week for the full sample, for boys, and for girls.
 
 The full sample:
-```stata
+```
 sum hw_tot weekly_hw
 ```
 
@@ -232,7 +232,7 @@ With an output that looks like this:
 On average, a high school student will spend 47 minutes on homework in a day, and, for those that do some homework, will spend about 14 hours per week on homework or studying. Let's see how boys and girls compare in their homework time.
 
 Here's only boys:
-```stata
+```
 sum hw_tot weekly_hw if male == 1
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
@@ -243,7 +243,7 @@ sum hw_tot weekly_hw if male == 1
 ```
 
 And only girls:
-```stata
+```
 sum hw_tot weekly_hw if male == 0
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
@@ -257,7 +257,7 @@ We can see that by telling Stata to only calculate the summary statistics for ma
 
 As we have seen so far, Stata commands usually have options that can provide additional information or customization. We can use the detail option with the sum command to get the full set of statistics, including different percentiles and variance and measures of skew. The measure of skew tells us both the size of the disagreement between the mean and the median and the direction (a negative skew indicates the mean is lower than the median, while a positive skew indicates the mean is higher than the median).
 
-```stata
+```
 sum hw_tot weekly_hw, detail
 
 
@@ -293,7 +293,7 @@ sum hw_tot weekly_hw, detail
 ```
 You can also get a more targeted set of statistics using `tabstat`, which allows you to specify which statistics you want and which you do not. This will come in handy later when we start using Stata to create tables for us. Remember, the analyst's goal is to find ways to focus on the analysis and not the producing of the analysis. When you find ways to automate making tables (and I will show you some over the semester), use them!
 
-```stata
+```
 tabstat hw_tot weekly_hw, statistics(mean sd)
 
 
@@ -306,14 +306,14 @@ tabstat hw_tot weekly_hw, statistics(mean sd)
 
 And always remember to include a line in your code that closes your log file.
 
-```stata
+```
 log close
 ```
 
 The data for this class activity can be found [here](https://www.dropbox.com/sh/p9x5rg03bft9pz9/AABMoSaA23QHWRs7H0Yr4wrHa?dl=0).
 
 Your first .do file should look like this:
-```stata
+```
 cd "E:\rpad316\"
 use "data\class1.dta"
 log using "logs\lab1.log", replace
