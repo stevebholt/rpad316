@@ -156,7 +156,7 @@ We can see that the Pearson's R for education and wages is 0.63. An r coefficien
 | 0.3 < \|r\| < 0.5   | Moderate                 |
 | \|r\| < 0.5         | Strong                   |
 
-***Note:*** As with many things in statistics, there is some art to interpreting estimates and some of the subtlties and nuances will be context specific. Theory and the characteristics of your sample and data will have a large influence in how you think about the strength of a relationship. The more you learn statistics and work with data in a particular area of public policy, the more familiar you'll become with what characterizes strong and weak relationships in your context.
+***Note:*** As with many things in statistics, there is some art to interpreting estimates and some of the subtleties and nuances will be context specific. Theory and the characteristics of your sample and data will have a large influence in how you think about the strength of a relationship. The more you learn statistics and work with data in a particular area of public policy, the more familiar you'll become with what characterizes strong and weak relationships in your context.
 {: .notice--info}
 
 We can use the same command to look at the correlation of multiple variables at once. Let's add rent to the mix (`pwcorr incwage_avg years_education_avg rent_avg`) to see how things look:
