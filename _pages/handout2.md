@@ -31,7 +31,7 @@ graph pie caseid, over(classwkrd)
 graph export "output\piegraph_c2.png", as(png) replace
 ```
 
-Remember that a pie graph is plotting the percentage of observations in each category of a variable. Each slice of the pie is asking "of the total number of observations, what share of them are in category a?" or, in simple math terms, $`\frac{a}{n}`$. However, to do this, Stata needs to know what to count as observations so that it knows the $n$ for the denominator and can count the number of observations in each category. Stata also needs to know what categories to use for bunching observations together. The first line of code is tell Stata to use `caseid` to define that observations we want to include in our pie graph and to use `classwkrd` as the categories. The second line of code tells state to send this pie graph to our output folder so we can use it in a report or write up or blog or any purpose we have for creating and sharing this graph with the outside world. Notice that I added `_c2` to the name of the file - this is so it doesn't replace the piegraph we made in Class Lab 1. You should now have a pie graph that looks something like this:
+Remember that a pie graph is plotting the percentage of observations in each category of a variable. Each slice of the pie is asking "of the total number of observations, what share of them are in category a?" or, in simple math terms, a/n. However, to do this, Stata needs to know what to count as observations so that it knows the $n$ for the denominator and can count the number of observations in each category. Stata also needs to know what categories to use for bunching observations together. The first line of code is tell Stata to use `caseid` to define that observations we want to include in our pie graph and to use `classwkrd` as the categories. The second line of code tells state to send this pie graph to our output folder so we can use it in a report or write up or blog or any purpose we have for creating and sharing this graph with the outside world. Notice that I added `_c2` to the name of the file - this is so it doesn't replace the piegraph we made in Class Lab 1. You should now have a pie graph that looks something like this:
 
 ![Pie Graph](http://stevebholt.github.io/rpad316/assets/images/piegraph_c2.png)
 
@@ -127,7 +127,7 @@ Finally, let's go ahead and calculate the r, sometimes referred to as the Pearso
 
 As we noted in class, the Pearson's R comes from the formula:
 ```math
-r = \dfrac{1}{n-1}\sum^n_{i=1}(\dfrac{x_i - \overline{x}}{s_x})(\dfrac{y_i - \overline{y}}{s_y})
+r = (1/n-1)\sum^n_{i=1}((x_i - x-bar/s)(y_i - y-bar/s))
 ```
 
 That's a lot to calculate, even ignoring that `s` means we have to calculate standard deviations! Thankfully, Stata makes this simply with the `pwcorr` command. Here, we will tell Stata to estimate the R coefficient that describes the correlation between cities' average education levels and average earnings.
