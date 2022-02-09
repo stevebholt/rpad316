@@ -19,7 +19,10 @@ use "data\dataset3.dta"
 log using "logs\class2.log", replace
 ```
 
-Now, let's highlight the three lines of code we have in our .do file (you can use your mouse or on your keyboard, press `Ctrl + A`) and click the "Execute" button. Now, if you switch to the Stata window, you will see the data is loaded, the variables in the dataset are listed in the "Variables" viewer, and a log file has been started. We are ready! From here on out, this will be our starting process for labs and homeworks. Go slow, take things one step at a time, and make sure we are all set up before running commands. In future labs, I will refer to these steps as the "Setup Steps" and you should start every lab and homework with these steps. As you you work through commands in Stata, type out the code in your .do file, then highlight and execute it to produce graphs or tables to ensure you are on the right track as you go.
+Now, let's highlight the three lines of code we have in our .do file (you can use your mouse or on your keyboard, press `Ctrl + A`) and click the "Execute" button. Now, if you switch to the Stata window, you will see the data is loaded, the variables in the dataset are listed in the "Variables" viewer, and a log file has been started. We are ready! From here on out, this will be our starting process for labs and homeworks. Go slow, take things one step at a time, and make sure we are all set up before running commands. In future labs, I will refer to these steps as the "Setup Steps" and you should start every lab and homework with these steps. 
+
+**Tip:** As you you work through commands in Stata, type out the code from our class labs in your .do file, then highlight and execute it to produce graphs or tables to ensure you are on the right track as you go.
+{: .notice--info}
 
 # Graphs and Correlations in Stata
 In this example, and your homework, we will be working with data from the American Community Survey or the ACS. The ACS is one of the largest on-going public data collections in the country. It is an annual survey run by the U.S. Census Bureau that collects large, representative samples of respondents across the county and collects data on a variety of aspects of their daily lives. The ACS provide information for policy makers and entrepreneurs alike and is an incredibly valuable resource.
