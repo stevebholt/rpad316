@@ -28,7 +28,18 @@ Now, let's highlight the three lines of code we have in our .do file (you can us
 In this example, and your homework, we will be working with data from the American Community Survey or the ACS. The ACS is one of the largest on-going public data collections in the country. It is an annual survey run by the U.S. Census Bureau that collects large, representative samples of respondents across the county and collects data on a variety of aspects of their daily lives. The ACS provide information for policy makers and entrepreneurs alike and is an incredibly valuable resource.
 
 ## Review
-Let's start with a simple pie chart of the class of workers we have in the sample. This requires two variables - one that identifies the unit of observation and one that identifies the categories we'd like to see plotted into proportions of the sample. Here, in the ACS, the variable `caseid` provides a unique identifier for respondents, our unit of observation currently, and `classwkrd` provides a categorical variable of different classes of workers in our sample. Class of worker helps us better understand how many workers are working in different sectors of the economy. We can use those to create a pie chart just like we did in [Class Lab 1](https://stevebholt.github.io/rpad316/labs/class-lab-1/#making-simple-graphs):
+Let's start with a simple pie chart of the class of workers we have in the sample. This requires two variables - one that identifies the unit of observation and one that identifies the categories we'd like to see plotted into proportions of the sample. In the ACS, we are going to create a variable named `caseid` to provide a unique identifier for respondents, our unit of observation currently, and the extant variable `classwkrd` provides a categorical variable of different classes of workers in our sample. Class of worker helps us better understand how many workers are working in different sectors of the economy. Creating a variable for `caseid` lets us practice creating variables and lets us learn a new piece of Stata - how to tells state to use the observation number in a command. In Stata, `_n` refers to the row number that defines a particular observation or the observation number. Generally, this is passive information, but in this case, we can simply tell Stata to use this to create a unique numeric case number for each respondent that is equal to their observation number. The code will look like this:
+
+```
+gen caseid = _n
+```
+
+This tells Stata "generate a new variable called caseid and set it equal to the row number of the observation for each observation." Let's go ahead and label this variable too so we know what it is.
+
+```
+label var caseid "Numberic case identifier"
+```
+We can now use `caseid` and `classwkrd` to create a pie chart just like we did in [Class Lab 1](https://stevebholt.github.io/rpad316/labs/class-lab-1/#making-simple-graphs):
 
 ```
 graph pie caseid, over(classwkrd)
