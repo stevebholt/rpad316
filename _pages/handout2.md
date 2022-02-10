@@ -135,7 +135,7 @@ As we noted in class, the Pearson's R comes from the formula:
 r = (1/n-1) \sum^n_{i=1} (x_i - x-bar/s_x)(y_i - y-bar/s_y) 
 ```
 
-That's a lot to calculate, even ignoring that `s` means we have to calculate standard deviations! Thankfully, Stata makes this simply with the `pwcorr` command. Here, we will tell Stata to estimate the R coefficient that describes the correlation between cities' average education levels and average earnings.
+That's a lot to calculate, even ignoring that `s` means we have to calculate standard deviations! Thankfully, Stata makes this simple with the `pwcorr` command. Here, we will tell Stata to estimate the R coefficient that describes the correlation between cities' average education levels and average earnings.
 
 ```
 pwcorr incwage_avg years_education_avg
