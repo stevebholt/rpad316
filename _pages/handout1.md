@@ -219,7 +219,7 @@ sum hw_tot weekly_hw
 
 With an output that looks like this:
 
-```stata
+```
 . sum hw_tot weekly_hw
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
