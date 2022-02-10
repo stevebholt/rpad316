@@ -37,7 +37,7 @@ gen caseid = _n
 This tells Stata "generate a new variable called caseid and set it equal to the row number of the observation for each observation." Let's go ahead and label this variable too so we know what it is.
 
 ```
-label var caseid "Numberic case identifier"
+label var caseid "Numeric case identifier"
 ```
 We can now use `caseid` and `classwkrd` to create a pie chart just like we did in [Class Lab 1](https://stevebholt.github.io/rpad316/labs/class-lab-1/#making-simple-graphs):
 
