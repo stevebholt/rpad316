@@ -1,6 +1,7 @@
 ---
 permalink: /labs/
 title: "Class Labs"
+toc: true
 ---
 
 Links to the labs for each week can be found here, along with links to the cloud folders where the data for the class labs can be downloaded.
