@@ -1,6 +1,7 @@
 ---
 permalink: /assignments/
 title: "Assignments"
+toc: true
 ---
 
 All problem sets assigned each week and the data needed to complete them can be found here. Complete the assignment in a Word document with your answers numbered following the problems in the assignment. For problems done by hand, show your work. For problems done in Stata, show your code and the relevant output from your log file. Turn in your assignment on Blackboard.
