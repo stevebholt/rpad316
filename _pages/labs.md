@@ -20,5 +20,6 @@ Links to the labs for each week can be found here, along with links to the cloud
 
 # Class Lab 3
 [Class Lab 3](https://stevebholt.github.io/rpad316/labs/class-lab-3/), [Data for Lab 3](https://www.dropbox.com/sh/084t1a7idu856vm/AABiNmizS785oHW9Pjlj7wcCa?dl=0)
+
 **In This Lab:** We review graphing and estimating relationships between two continuous variables, and then we cover how to examine relationships between categorical variables using two-way tables. We use data from the Education Longitudinal Study of 2002 (ELS:2002) to work through these examples in Stata.
 {: .notice--success}
