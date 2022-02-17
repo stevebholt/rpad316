@@ -209,7 +209,7 @@ graph export "output\bar3_lab3.png", as(png) replace
 
 ![Bar Graph of Parental Education](http://stevebholt.github.io/rpad316/assets/images/bar3_lab3.png)
 
-Let's look at intergenerational transfers of income. The general logic here we can see what proportion of those who are wealthy (or poor) in adulthood came from wealthy (or poor) households in high school. Without intergenerational transfers of income, we might expect high-earners in adulthood to come from both low-income families and high-income families at similar rates. The size of the gap in this conditional distribution might suggest an additional benefit to being born into a high-earning family that lasts into adulthood. A quick two-way table in Stata would look like this:
+Let's look at intergenerational transfers of income. The general logic here is we can see what proportion of those who are wealthy (or poor) in adulthood came from wealthy (or poor) households in high school. Without intergenerational transfers of income, we might expect high-earners in adulthood to come from both low-income families and high-income families at similar rates. The size of the gap in this conditional distribution might suggest an additional benefit to being born into a high-earning family that lasts into adulthood. A quick two-way table in Stata would look like this:
 
 ```
 . tab byhhincome adultincome, column
