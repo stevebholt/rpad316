@@ -37,7 +37,7 @@ sum math12 math10
 
 As we can see, the test scores are pretty standard with a mean of about 51 and a standard deviation of about 10 points.
 
-**Note:** Note that the number of observations for 12th grade math scores is lower than the number for 10th grade math scores. Panel studies often experience declining participation over time - people decide they do not want to be in the study any more or they move and researchers cannot find them - and, consequently, the "base year" of the sample is often the largest. Researchers and study designers know this and design their panel studies to account for these changes in the sample over time.
+**Note:** We can see that the number of observations for 12th grade math scores is lower than the number for 10th grade math scores. Panel studies often experience declining participation over time - people decide they do not want to be in the study any more or they move and researchers cannot find them - and, consequently, the "base year" of the sample is often the largest. Researchers and study designers know this and design their panel studies to account for these changes in the sample over time.
 {: .notice--warning}
 
 Here's a good opportunity to practice scatterplots. We might expect that, since these are all the same students, 10th grade math performance has a strong, positive relationship with 12th grade math performance. If we saw the reverse, we might be really worried about the validity of our tests, the quality of our nation's high schools, or both!
