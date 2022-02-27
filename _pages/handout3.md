@@ -373,6 +373,23 @@ In Excel, we can then add borders to our table using the borders dropdown and se
 
 ...and we can copy and paste the table into our word document for a nicer presentation of our results. Remember, in the homeworks, include the code used to run the analysis and produce the table.
 
+## Summary Tables with Subgroups
+Now, let's say we are working with a categorical variable, say gender (`bysex` in the ELS), and a continuous variable like test scores. Here, we will combine the summary analysis by group that we did in [Class Lab 1](https://stevebholt.github.io/rpad316/labs/class-lab-1/#summarizing-data) with the process above for making tables. Our continuous variable will be our row variable and we will have a new column for each category. To do this, we add a few additional lines of code:
+
+```
+estpost sum read10 math10 if bysex == 1
+est sto boys
+estpost sum read10 math10 if bysex == 2
+est sto girls
+esttab boys girls using "output\table1d.csv", cell(mean(fmt(2)) sd(fmt(2) par)) label replace
+```
+In the code above, we are running our summary statistics of math and reading scores in 10th grade, just like we did above, but we are doing it twice: once for only boys and once for only girls. To create a table from this separate process, we need to store the statistics for boys and girls in Stata's temporary memory. For that, after we run our summary statistics, we use `est sto boys` to tell Stata to store the statistics (the `est sto` command) and to label the statistics `boys` for us to reference them later. We do the same for girls. Finally, we tell Stata to create a table, the same way we did before, but this time we add `boys girls` before the `using` command so that Stata knows to use the boys statistics and the girls statistics for the columns in the new table. We should end with a table that looks like this:
+
+![Example Table](http://stevebholt.github.io/rpad316/assets/images/table1d_gender.PNG)
+
+Column 1 is boys and column 2 is girls because that was the order we listed the statistics in our `esttab` command. It looks like in this cohort, girls scored a little higher in their reading and language skills while boys scored a little higher on their math skills in 10th grade.
+
+
 ## Two-Way Tables
 
 For a two way table, the process is similar. We start with running a tab of two categorical variables led by `estpost`:
