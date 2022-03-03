@@ -12,3 +12,5 @@ The lecture slides each week can be found here.
 # [Week 3 Slides](https://stevebholt.github.io/rpad316/assets/documents/week3.pdf)
 
 # [Week 4 Slides](https://stevebholt.github.io/rpad316/assets/documents/week4.pdf)
+
+# [Week 5 Slides](https://stevebholt.github.io/rpad316/assets/documents/week5.pdf)
