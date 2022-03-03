@@ -23,3 +23,9 @@ Links to the labs for each week can be found here, along with links to the cloud
 
 **In This Lab:** We review graphing and estimating relationships between two continuous variables, and then we cover how to examine relationships between categorical variables using two-way tables. We use data from the Education Longitudinal Study of 2002 (ELS:2002) to work through these examples in Stata.
 {: .notice--success}
+
+# Class Lab 4
+[Class Lab 4](https://stevebholt.github.io/rpad316/labs/class-lab-4/), [Data for Lab 4](https://www.dropbox.com/sh/dpipgfbkqnuq9ze/AACIG-5MLmgIANhRLb6dkwcTa?dl=0)
+
+**In This Lab:** We review working with categorical and continuous variables to create a table. We then walk through the steps to create z-scores in Stata. We use data from the American Time Use Survey to work through these examples in Stata.
+{: .notice--success}
