@@ -35,3 +35,6 @@ All problem sets assigned each week and the data needed to complete them can be 
 
 **About This Data:** The data in this homework returns to the world of time-use data from the American Time Use Survey (ATUS) and the world of politics from the Cooperative Congressional Election Study (CCES). The ATUS includes data from retrospective time diaries from a nationally representative sample. It allows researchers and policymakers to get a sense for how Americans spend their time on a typical day. I have used the ATUS in my research to examine gender gaps in [time spent on homework](https://stevebholt.github.io/files/GershensonHoltER.pdf) among high school students, gaps between public and private sector works in [time spent volunteering](https://stevebholt.github.io/files/Holt2019JPART.pdf), and inequality in [time spent waiting for routine services](https://osf.io/preprints/socarxiv/jbk3x/). Other researchers have used the ATUS to study labor and leisure trade-offs by income, gender differences in care taking and childcare obligations, and a wide range of other policy relevant issues. The CCES and its applications to research were covered by Assignment 4.
 {: .notice--success}
+
+# Midterm Practice Set
+[Midterm Practice Problems](https://stevebholt.github.io/rpad316/assets/documents/Midterm_Sample_questions.pdf)
