@@ -16,3 +16,5 @@ The lecture slides each week can be found here.
 # [Week 5 Slides](https://stevebholt.github.io/rpad316/assets/documents/week5.pdf)
 
 # [Midterm Review Slides](https://stevebholt.github.io/rpad316/assets/documents/review.pdf)
+
+# [Week 6 Slides](https://stevebholt.github.io/rpad316/assets/documents/week6.pdf)
