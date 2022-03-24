@@ -38,3 +38,9 @@ All problem sets assigned each week and the data needed to complete them can be 
 
 # Midterm Practice Set
 [Midterm Practice Problems](https://stevebholt.github.io/rpad316/assets/documents/Midterm_Sample_questions.pdf)
+
+# Assignment 6
+[Assignment 6](https://stevebholt.github.io/rpad316/assets/documents/homework6handout.pdf), [Data for Assignment 6](https://www.dropbox.com/sh/njfp9hkyuxxd0ve/AACqfk12od3D1JJKt7pJN0sGa?dl=0)
+
+**About This Data** The data in this homework again comes from the ATUS dataset, this time focusing on time spent working. The assignment is structured very similarly to the [class exercise](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise.docx) we did to practice working with confidence intervals and sampling distributions. You can find the solutions to those exercises [here](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise_solutions.pdf).
+{: .notice--success}
