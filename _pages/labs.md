@@ -29,3 +29,9 @@ Links to the labs for each week can be found here, along with links to the cloud
 
 **In This Lab:** We review working with categorical and continuous variables to create a table. We then walk through the steps to create z-scores in Stata. We use data from the American Time Use Survey to work through these examples in Stata.
 {: .notice--success}
+
+# Class Lab 5
+[Class Lab 5](https://stevebholt.github.io/rpad316/labs/class-lab-5/), [Data for Lab 5](https://www.dropbox.com/sh/1gyy14ejqqahi93/AADqneVCaC0b1uZ34HCAQicsa?dl=0)
+
+**In This Lab:** We review estimating means and standard deviations in Stata, learn new commands to estimate means with standard errors and confidence intervals, and then cover the basics of hypothesis testing in Stata. We use data from the Census of Adult Correctional Facilities to work through these examples.
+{: .notice--success}
