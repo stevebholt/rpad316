@@ -35,3 +35,9 @@ Links to the labs for each week can be found here, along with links to the cloud
 
 **In This Lab:** We review estimating means and standard deviations in Stata, learn new commands to estimate means with standard errors and confidence intervals, and then cover the basics of hypothesis testing in Stata. We use data from the Census of Adult Correctional Facilities to work through these examples.
 {: .notice--success}
+
+# Class Lab 6
+[Class Lab 6](https://stevebholt.github.io/rpad316/labs/class-lab-6/), [Data for Lab 6](https://www.dropbox.com/sh/ssj0u61p5opgpn4/AAAG3guiTTF85cBJCEeeFOdea?dl=0)
+
+**In This Lab:** We review estimating summary statistics for subsamples in Stata, walk through using summary statistics to calculate a two-sample t-test, and then using Stata to run a two-sample t-test for us. We use data from Project STAR to work through these examples.
+{: .notice--success}
