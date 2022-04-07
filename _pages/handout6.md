@@ -142,6 +142,7 @@ Here, we can see 1) a summary of both samples separately, 2) a summary of the sa
 If we were advising policy-makers, we could confidently suggest that small class sizes will increase average reading test scores, particularly since students were randomly assigned to the treatment status. We will not always have samples so cleanly assigned, however, and, in many cases, we will need to account for other differences between the two groups to get more reliable estimates of differences statistical inference.
 
 [^bignote1]: For those interested, the code for cleaning the data to create the subsample used in this lab can be found here.
+    
     ```
     use "C:\\star_student.dta"
     keep hstest hsgrdcol gender race gktrace gkthighdegree gktyears gkfreelunch 
