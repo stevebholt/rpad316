@@ -6,7 +6,7 @@ mathjax: true
 ---
 
 # Two Sample Hypothesis Tests
-
+## Estimating Summary Statistics
 In order to illustrate the process and usefulness of two sample hypothesis tests, we will use the STAR project data. The STAR project was a study conducted in Tennessee schools that aimed to measure the efficacy of small classrooms and teaching aides in improving educational outcomes for students. The researchers measured the effects by randomly assigning students to small classrooms (a "treatment"), regular classrooms with a teacher's aide (another "treatment"), and regular classrooms (a "control" group). The setup of the STAR project, interested in isolating the effects of a policy or program, draws on the gold standard of research designs: randomized control trials (RCT).
 
 Whenever analysts would like to know the causal relationship between an action or intervention and a policy-relevant outcome, they want be able to simultaneously observe outcomes in a world where the action was taken and a world without the action. Of course, such observation is impossible, so analysts compare groups exposed to an action (i.e., a "treatment" group) to groups not exposed to the action (i.e., a "control" group) to make inferences about the effects of the action. When assignment to treatment and control group is not random, a potential worry is that the two groups differ in ways besides exposure to the treatment. For instance, perhaps a larger share of the treatment group has more highly motivated students; thus, the treatment and control group would differ in both motivation _and_ exposure to the treatment, leaving the analyst to wonder which actually caused the difference in outcomes between treatment and control groups. However, in the STAR project (and RCTs more generally), since the sample of students was both large and random, and assignment to each group was also random, the treatment and control groups, _on average_, are unlikely to differ substantially in ways besides their exposure to the treatment.
@@ -69,7 +69,7 @@ The STAR project collected data on a wide range of educational outcomes at the e
 sort treatment_four
 by treatment_four: sum read_k
 ```
-
+## Setting Up a T-test By Hand
 The sort command tells Stata to reorganize the observations according to the values of the variable specified, in this case `treatment_four`. Since `treatment_four` has two values, 0 and 1, Stata reorganizes the data to put all the zeroes (i.e., the control group) on top and all the ones (i.e., the treatment group) on the bottom. The second command tells Stata to summarize the reading scores for each group separately. The output will look like:
 
 ```
@@ -112,6 +112,7 @@ Note that there was a lot of rounding to two decimal points in my calculation, b
 
 As we can see, our p-value of 0.0000001117 is much lower than the alpha threshold of 0.05. We can therefore confidently reject the null hypothesis that the difference between the treatment and control group is actually 0. More specifically, if the underlying population actually had 0 difference between small and regular classroom students' reading scores, 99.99 percent of samples would have a difference smaller than the one observed in our sample. In short, it would be extremely unlikely for two samples of this size to have a gap in scores this large if there was no gap in the broader population.
 
+## Two-sample T-test in Stata
 That was quite a bit of work, however, and we know Stata can be useful for simplifying our work. We can use the `ttest` command with the `, by()` option to have Stata run a two sample t-test for us. The full command is:
 
 ```
