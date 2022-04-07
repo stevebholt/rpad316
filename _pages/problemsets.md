@@ -44,3 +44,9 @@ All problem sets assigned each week and the data needed to complete them can be 
 
 **About This Data** The data in this homework again comes from the ATUS dataset, this time focusing on time spent working. The assignment is structured very similarly to the [class exercise](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise.docx) we did to practice working with confidence intervals and sampling distributions. You can find the solutions to those exercises [here](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise_solutions.pdf).
 {: .notice--success}
+
+# Assignment 7
+[Assignment 7](https://stevebholt.github.io/rpad316/assets/documents/homework7handout.pdf), [Data for Assignment 7](https://www.dropbox.com/sh/h60ek58i4edlald/AAB9SRzjlh_cWqo3J2ZVYA3Ua?dl=0)
+
+**About This Data** The data in this homework comes from the Census of State and Federal Adult Correctional Facilities (CCF). The [CCF](https://bjs.ojp.gov/data-collection/census-state-and-federal-adult-correctional-facilities-ccf-formerly-csfacf) is collected by the Bureau of Justice Statistics every 5 to 7 years and provides a comprehensive look at the staffing, conditions, programs, and inmate populations at all corrections facilities in the country. Data on corrections facilities in a standardized and comparable format is often hard to come by, and the CCF provides a useful look to allow researchers and policymakers assess the conditions of the nations prisons. Questions about the efficacy of various programs in improving conditions in prisons, the relative size and density of prisons, and the staff-to-inmate ratios in different kinds of prisons are potential applications for the data. [In my own work](https://stevebholt.github.io/files/JohnstonHolt2019PSJ.pdf), I have used this data to compare public and private prison conditions and examine the link between staff demographics and prison violence. 
+{: .notice--success}
