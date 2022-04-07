@@ -142,105 +142,90 @@ Here, we can see 1) a summary of both samples separately, 2) a summary of the sa
 If we were advising policy-makers, we could confidently suggest that small class sizes will increase average reading test scores, particularly since students were randomly assigned to the treatment status. We will not always have samples so cleanly assigned, however, and, in many cases, we will need to account for other differences between the two groups to get more reliable estimates of differences statistical inference.
 
 [^bignote1]: For those interested, the code for cleaning the data to create the subsample used in this lab can be found here.
-```
-use "C:\\star_student.dta"
-keep hstest hsgrdcol gender race gktrace gkthighdegree gktyears gkfreelunch 
-gkrepeat gkspeced gktreadss gktmathss gkabsent g5treadss g5tmathss g4treadss 
-g4tmathss g3treadss g3tmathss hstest hsgrdcol gkclasstype g1classtype 
-g2classtype g3classtype
-
-/*
-This drops cases missing data using a "loop," a powerful tool to automate
-monotonous and repetitive tasks. It essentially tells Stata to run the
-"drop" command over and over for each of the variables I listed.
-*/
-foreach x of varlist gender race gktrace gkthighdegree gktyears gkfreelunch 
-gkrepeat gkspeced gktreadss gktmathss gkabsent g5treadss g5tmathss g4treadss 
-g4tmathss g3treadss g3tmathss gkclasstype g1classtype 
-g2classtype g3classtype{
-drop if `x' == .
-}
-
-/*
-This creates binary indicators for each category of teacher 
-and student characteristics.
-*/
-gen twhite = 0
-replace twhite = 1 if gktrace == 1
-gen tblack = 0
-replace tblack = 1 if gktrace == 2
-label var twhite "White teacher"
-label var tblack "Black teacher"
-
-gen tadvanced_degree = 0
-replace tadvanced_degree = 1 if gkthighdegree > 2
-label var tadvanced_degree "Teacher has advanced degree"
-
-gen frpl = 0
-replace frpl = 1 if gkfreelunch == 1
-label var frpl "Free or reduced-price lunch eligible"
-
-gen repeated = 0
-replace repeated = 1 if gkrepeat == 2
-label var repeated "Student repeated kindergarten"
-
-gen speced = 0
-replace speced = 1 if gkspeced == 1
-label var speced "Student is special education"
-
-gen smale = 0
-replace smale = 1 if gender == 1
-label var smale "Male"
-
-gen swhite = 0
-replace swhite = 1 if race == 1
-gen sblack = 0
-replace sblack = 1 if race == 2
-gen sasian = 0
-replace sasian = 1 if race == 3
-gen shisp = 0
-replace shisp = 1 if race == 4
-gen snative = 0
-replace snative = 1 if race == 5
-gen sother = 0
-replace sother = 1 if race == 6
-label var swhite "White"
-label var sblack "Black"
-label var sasian "Asian"
-label var shisp "Latinx"
-label var snative "Native American"
-label var sother "Other race"
-
-/*
-This identifies treatment and control groups based on 
-treatment and control status each grade.
-*/
-
-gen treatment_four = 0
-replace treatment_four = 1 if (gkclasstype == 1 & g1classtype == 1 & 
-g2classtype == 1 & g3classtype == 1)
-label var treatment_four "Small class all 4 years"
-
-gen control_four = 0
-replace control_four = 1 if (gkclasstype == 2 & g1classtype == 2 & 
-g2classtype == 2 & g3classtype == 2)
-label var control_four "Regular class all 4 years"
-
-keep if (control_four == 1 | treatment_four == 1)
-
-/*
-This applies a more intuitive name for the tests
-for each grade of the tests.
-*/
-
-rename gktreadss read_k
-rename gktmathss math_k
-rename g3treadss read_3
-rename g3tmathss math_3
-rename g4treadss read_4
-rename g4tmathss math_4
-rename g5treadss read_5
-rename g5tmathss math_5
-
-save "C:\\STAR_longrun.dta", replace
-```
+    ```
+    use "C:\\star_student.dta"
+    keep hstest hsgrdcol gender race gktrace gkthighdegree gktyears gkfreelunch 
+    gkrepeat gkspeced gktreadss gktmathss gkabsent g5treadss g5tmathss g4treadss 
+    g4tmathss g3treadss g3tmathss hstest hsgrdcol gkclasstype g1classtype 
+    g2classtype g3classtype
+    /*
+    This drops cases missing data using a "loop," a powerful tool to automate
+    monotonous and repetitive tasks. It essentially tells Stata to run the
+    "drop" command over and over for each of the variables I listed.
+    */
+    foreach x of varlist gender race gktrace gkthighdegree gktyears gkfreelunch 
+    gkrepeat gkspeced gktreadss gktmathss gkabsent g5treadss g5tmathss g4treadss 
+    g4tmathss g3treadss g3tmathss gkclasstype g1classtype 
+    g2classtype g3classtype{
+    drop if `x' == .
+    }
+    /*
+    This creates binary indicators for each category of teacher 
+    and student characteristics.
+    */
+    gen twhite = 0
+    replace twhite = 1 if gktrace == 1
+    gen tblack = 0
+    replace tblack = 1 if gktrace == 2
+    label var twhite "White teacher"
+    label var tblack "Black teacher"
+    gen tadvanced_degree = 0
+    replace tadvanced_degree = 1 if gkthighdegree > 2
+    label var tadvanced_degree "Teacher has advanced degree"
+    gen frpl = 0
+    replace frpl = 1 if gkfreelunch == 1
+    label var frpl "Free or reduced-price lunch eligible"
+    gen repeated = 0
+    replace repeated = 1 if gkrepeat == 2
+    label var repeated "Student repeated kindergarten"
+    gen speced = 0
+    replace speced = 1 if gkspeced == 1
+    label var speced "Student is special education"
+    gen smale = 0
+    replace smale = 1 if gender == 1
+    label var smale "Male"
+    gen swhite = 0
+    replace swhite = 1 if race == 1
+    gen sblack = 0
+    replace sblack = 1 if race == 2
+    gen sasian = 0
+    replace sasian = 1 if race == 3
+    gen shisp = 0
+    replace shisp = 1 if race == 4
+    gen snative = 0
+    replace snative = 1 if race == 5
+    gen sother = 0
+    replace sother = 1 if race == 6
+    label var swhite "White"
+    label var sblack "Black"
+    label var sasian "Asian"
+    label var shisp "Latinx"
+    label var snative "Native American"
+    label var sother "Other race"
+    /*
+    This identifies treatment and control groups based on 
+    treatment and control status each grade.
+    */
+    gen treatment_four = 0
+    replace treatment_four = 1 if (gkclasstype == 1 & g1classtype == 1 & 
+    g2classtype == 1 & g3classtype == 1)
+    label var treatment_four "Small class all 4 years"
+    gen control_four = 0
+    replace control_four = 1 if (gkclasstype == 2 & g1classtype == 2 & 
+    g2classtype == 2 & g3classtype == 2)
+    label var control_four "Regular class all 4 years"
+    keep if (control_four == 1 | treatment_four == 1)
+    /*
+    This applies a more intuitive name for the tests
+    for each grade of the tests.
+    */
+    rename gktreadss read_k
+    rename gktmathss math_k
+    rename g3treadss read_3
+    rename g3tmathss math_3
+    rename g4treadss read_4
+    rename g4tmathss math_4
+    rename g5treadss read_5
+    rename g5tmathss math_5
+    save "C:\\STAR_longrun.dta", replace
+    ```
