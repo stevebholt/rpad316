@@ -20,3 +20,5 @@ The lecture slides each week can be found here.
 # [Week 6 Slides](https://stevebholt.github.io/rpad316/assets/documents/week6.pdf), [Class Exercise](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise.docx), [Class Exercise Solutions](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise_solutions.pdf)
 
 # [Week 7 Slides](https://stevebholt.github.io/rpad316/assets/documents/week7.pdf)
+
+# [Week 8 Slides](https://stevebholt.github.io/rpad316/assets/documents/linear_regression.pdf)

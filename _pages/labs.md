@@ -41,3 +41,9 @@ Links to the labs for each week can be found here, along with links to the cloud
 
 **In This Lab:** We review estimating summary statistics for subsamples in Stata, walk through using summary statistics to calculate a two-sample t-test, and then using Stata to run a two-sample t-test for us. We use data from Project STAR to work through these examples.
 {: .notice--success}
+
+# Class Lab 7
+[Class Lab 7](https://stevebholt.github.io/rpad316/labs/class-lab-7/), [Data for Lab 7](https://www.dropbox.com/sh/2tyxklqj7e648vt/AAAFnVUkUgSfT8HQPDfQcdDZa?dl=0)
+
+**In This Lab:** We review estimating linear regressions in Stata and interpret the output Stata provides after estimating a regression. We use data from the National Health Inventory Survey to work through the example.
+{: .notice--success}
