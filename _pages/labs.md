@@ -47,3 +47,9 @@ Links to the labs for each week can be found here, along with links to the cloud
 
 **In This Lab:** We review estimating linear regressions in Stata and interpret the output Stata provides after estimating a regression. We use data from the National Health Inventory Survey to work through the example.
 {: .notice--success}
+
+# Class Lab 8
+[Class Lab 8](https://stevebholt.github.io/rpad316/labs/class-lab-8/), [Data for Lab 8](https://www.dropbox.com/sh/j6423xc9barma2o/AABnfML85wl8JTPKd__1cCzZa?dl=0)
+
+**In This Lab:** We review estimating simple, bivariate linear regressions in Stata and interpret the output Stata provides after estimating a regression. We then move on to adding additional control variables to our models to estimate a multivariate regression model. We use data from the ATUS to work through the example.
+{: .notice--success}
