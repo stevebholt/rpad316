@@ -22,3 +22,5 @@ The lecture slides each week can be found here.
 # [Week 7 Slides](https://stevebholt.github.io/rpad316/assets/documents/week7.pdf)
 
 # [Week 8 Slides](https://stevebholt.github.io/rpad316/assets/documents/linear_regression.pdf), [Regression Formulas](https://stevebholt.github.io/rpad316/assets/documents/formulas.pdf)
+
+# [Week 9 Slides](https://stevebholt.github.io/rpad316/assets/documents/multivariate_regression.pdf)
