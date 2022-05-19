@@ -85,7 +85,7 @@ egen sd_care = sd(care2)
 Now, we can use all of these components and create a variable that applies the z-score formula to each observation of x (in this case `care2`) in the sample. Recall that the formula for the z-score is:
 
 
-$$ Z = (X - \overline{X})/S_x $$
+$$ Z = \dfrac{(X - \overline{X})}{S_x} $$
 
 
 In Stata, the variables we just created look like this:
