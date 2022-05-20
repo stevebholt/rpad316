@@ -132,9 +132,7 @@ estpost sum z_wrktime z_care z_social if income == 4
 eststo highinc
 estpost sum z_wrktime z_care z_social
 eststo totals
-esttab lowinctime lowmidinc himidinc highinc totals using "output\example2",
- cell(mean(fmt(2)) sd(par)) replace label csv mtitles("Low income"
-  "Lower-middle income" "Upper-middle income" "High income" "Total")
+esttab lowinctime lowmidinc himidinc highinc totals using "output\example2", cell(mean(fmt(2)) sd(par)) replace label csv mtitles("Low income" "Lower-middle income" "Upper-middle income" "High income" "Total")
 ```
 
 Which will make a table that looks like:
