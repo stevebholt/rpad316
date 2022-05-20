@@ -2,7 +2,7 @@
 title: "Class Lab 4"
 permalink: /labs/class-lab-4/
 toc: true
-mathjax: true
+use_math: true
 ---
 
 # Review
