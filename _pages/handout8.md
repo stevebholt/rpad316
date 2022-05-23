@@ -11,11 +11,11 @@ mathjax: true
 
 In this lab, we extend our linear regression model to include more than one independent variable (X). In the simple linear model, we are interested in the relationship between X and Y. We assume a linear relationship in the population where each additional change in X has a corresponding change in Y. Since the relationship is linear, we can collect some data on X and Y from a sample and use the slope of the line between X and Y in our sample to draw inferences about the relationship in the broader population. That is, we are modeling:
 
-![Regression Model](http://stevebholt.github.io/rpad316/assets/images/reg1.PNG)
+$$ Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i $$
 
-and B1 captures the relationship between X and Y. For this example, we will use data from the American Time Use Survey (ATUS) to look at time spent on volunteering (in minutes). We might think that as people get older, they spend more time volunteering because they have more discretionary time. We would then estimate the simple linear model:
+and $\beta_1$ captures the relationship between X and Y. For this example, we will use data from the American Time Use Survey (ATUS) to look at time spent on volunteering (in minutes). We might think that as people get older, they spend more time volunteering because they have more discretionary time. We would then estimate the simple linear model:
 
-![Regression Model](http://stevebholt.github.io/rpad316/assets/images/reg2.PNG)
+$$ VolunteerTime_i = \beta_0 + \beta_1 Age_i + \varepsilon_i $$
 
 by using the simple command:
 ```
@@ -45,9 +45,9 @@ In the output, just as before, the number of observations and R2 can be found in
 ## Multivariate Regressions
 Of course, we know (or have good reason to believe) that other variables might also explain volunteering beyond age. Worse, some might be correlated with both age _and_ time spent volunteering. For example, as people get older, they might live in large households with more people to care for in their family. Such family commitments might eat into the time available for volunteering. We will account for this with the simple model:
 
-![Regression Model](http://stevebholt.github.io/rpad316/assets/images/reg3.PNG)
+$$ VolunteerTime_i = \beta_0 + \beta_1 Age_i + \beta_2 HouseholdSize_i + \varepsilon_i $$
 
-where household size is the number of people in the household. In Stata, estimating a multivariate linear regression is simple. You simply add the new independent variables (X1, X2, X3,....Xk) to the code of the regression model used before with the format `reg y x1 x2 x3 ... xk`. In this case, we will run the code:
+where household size is the number of people in the household. In Stata, estimating a multivariate linear regression is simple. You simply add the new independent variables $(X1, X2, X3,....Xk)$ to the code of the regression model used before with the format `reg y x1 x2 x3 ... xk`. In this case, we will run the code:
 
 ```
 . reg volunteer_tot2 teage hhsize
@@ -74,7 +74,7 @@ A few things jump out. First, our model controlling for both household size and 
 
 Sometime we might want to control for a categorical variable in our regression, which has a very different interpretation. For example, a person's level of education probably correlates with both their age and how much time they spend volunteering. Multivariate regressions seek to account for additional factors to better isolate the the relationship between the independent variables (age and education) and the dependent variable (volunteer time).
 
-One final note on multivariate regression. Recall that a binary variable in simple regression provide a difference in means between two groups. In multivariate regression, you can control for continuous variables, like age, directly, but for categorical variable, like educational attainment, you must control for all but one category separately. In doing so, the category not controlled for becomes B0 (the intercept) and the coefficients for each category measure the conditional difference in means between that category and the omitted category. Our example will make this more clear.
+One final note on multivariate regression. Recall that a binary variable in simple regression provide a difference in means between two groups. In multivariate regression, you can control for continuous variables, like age, directly, but for categorical variable, like educational attainment, you must control for all but one category separately. In doing so, the category not controlled for becomes $\beta_0$ (the intercept) and the coefficients for each category measure the conditional difference in means between that category and the omitted category. Our example will make this more clear.
 
 As before, we will simply add a control for education to our regression code, addressing the additional nuance of controlling for a categorical variable in Stata. You can have Stata quickly create controls for each category in a categorical variable and omit a category to serve as the reference group by simply adding `i.` before the variable's name in the code. We will add education to our model of volunteer time to model volunteering as the linear function:
 
