@@ -56,9 +56,7 @@ estpost sum wrktime2 care2 socialize2 if income == 4
 eststo highinc
 estpost sum wrktime2 care2 socialize2
 eststo totals
-esttab lowinctime lowmidinc himidinc highinc totals using "output\example1_lab4.csv",
- cell(mean(fmt(2)) sd(par)) replace label unstack csv mtitles("Low income" 
- "Lower-middle income" "Upper-middle income" "High income" "Total")
+esttab lowinctime lowmidinc himidinc highinc totals using "output\example1_lab4.csv", cell(mean(fmt(2)) sd(par)) replace label unstack csv mtitles("Low income" "Lower-middle income" "Upper-middle income" "High income" "Total")
 ```
 
 As always, replace the `example1_lab4` part above with the title of the file that makes the most sense for you. The `mtitles()` part of the code labels the columns of the table, in order. The code should produce a table that looks like this:
