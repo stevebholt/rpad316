@@ -83,7 +83,7 @@ Which will create a graph that looks something like:
 
 ![Histogram of Wages](http://stevebholt.github.io/rpad316/assets/images/histograph_c2.png)
 
-We can see that the modal city has an average income of just under \$25,000 per year. But we can see some cities way out in the wings where the average income is just shy of \$60,000.
+We can see that the modal city has an average income of just under \$ 25,000 per year. But we can see some cities way out in the wings where the average income is just shy of \$ 60,000.
 
 Now, let's use `histogram years_education_avg` to take a look at the distribution of years of education in cities:
 
