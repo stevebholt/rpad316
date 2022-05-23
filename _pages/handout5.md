@@ -23,16 +23,14 @@ Which should look like:
 ```
 So correction facilities have an average of 725 disciplinary citations given to inmates per year. Note that the standard deviation is 1633.57 and there are 3,311 observations in our sample. If we apply our formula for measuring the spread of the sampling distribution for samples of 3311 prisons (i.e., calculate the standard error), we would get something like:
 
-```
-s.e. = sd/sqrt(n) -> se = 1633.57/sqrt(3311) -> s.e. = 1633.57/57.54 -> s.e. = 28.39
-```
+$$ s.e. = \dfrac{\sigma}{\sqrt{n}} \rightarrow s.e. = \dfrac{1633.57}{\sqrt{3311}} \rightarrow s.e. = \dfrac{1633.57}{\pm 57.54} \rightarrow s.e. = \pm28.39 $$
+
 
 ## Confidence Intervals
 Extending this further, if we wanted to know the 95% confidence interval of disciplinary citations used in our sample of prisons, we would use the z-score associated with 95% of observations falling between it in a normal distribution (see a z-table to confirm). Recall that the z-score for 95% will have 0.025 observations below it in the z-table because there are two tales in the distribution and 2 * 0.025 is 0.05 or 5%. We would calculate out confidence interval as:
 
-```
-CI = X +(-) Z * (s.e.) -> CI = 725.2921 +(-) (1.96 * 28.39) -> CI = 725.2921 +(-) 55.6444
-```
+$$ C.I. = \overline{x} \pm (Z * s.e.) \rightarrow C.I. = 725.2921 \pm (1.96 * 28.39) \rightarrow C.I. = 725.2921 \pm 55.6444 $$
+
 Resolving equation (2) gives us a 95% confidence interval that ranges from 669.6477 to 780.9365. Of course, the reason we want to use tools like Stata when doing data analysis is because we do not want to have to calculate these statistics by hand for every analysis we run. Stata can apply the formulas for us with a simple command: `mean`. Using `mean` instead of `sum` like this:
 
 ```
