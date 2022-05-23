@@ -116,7 +116,7 @@ Our sample of prisons with a court order gave out an average of 925 citations, w
 ttest discipline==300 if order_discipline == 1
 ```
 
-In the above code, we are telling to conduct a hypothesis test that the average number of disciplinary citations among prisons with a court order is 300 (i.e., we are testing the hypothesis that the prisons are following the court order, on average). The `texttt==300` part of the code tells Stata to test whether the average of discipline is equal to 300 citations. The `if order_discipline == 1` part of the code sets the condition that only the sample of prisons with a court order is included in our hypothesis test. Using that code will give us output that looks like this:
+In the above code, we are telling to conduct a hypothesis test that the average number of disciplinary citations among prisons with a court order is 300 (i.e., we are testing the hypothesis that the prisons are following the court order, on average). The `discipline==300` part of the code tells Stata to test whether the average of `discipline` is equal to 300 citations. The `if order_discipline == 1` part of the code sets the condition that only the sample of prisons with a court order is included in our hypothesis test. Using that code will give us output that looks like this:
 
 ```
 One-sample t test
