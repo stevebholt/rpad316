@@ -8,18 +8,16 @@ mathjax: true
 # Simple Linear Regression
 To illustrate the concepts and uses of linear regression for analysis, we will be using data from the National Health Interview Survey (NHIS), which is an annual survey of a nationally representative sample of the U.S. population and asks a host of questions about health and health related behaviors and programs. For our example of a simple linear regression, we will be looking at one relationship that we theorize exists in the world to test hypotheses about these relationships. We will look at the relationship between body mass index (BMI) and exercise frequency. BMI is a proxy measure of obesity and scores outside the healthy range of 18 to 22 or so can suggest an increased risk of diseases like diabetes. For regression analysis, we assume that there is a linear relationship in the population:
 
-```
-BMI_i = B_0 + B_1 Excercise_i + e_i
-```
+
+$$ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i $$
+
 
 where every additional period of exercise a person _i_ engages in will yield a change of _BMI_ equal to B_1.
 
 ## Continuous Outcome and Continuous Independent Variable
 Beginning with our first model, the link between BMI and exercise, we have a theory that the relationship in the population looks like:
 
-```
-BMI_i = B_0 + B_1 Excercise_i + e_i
-```
+$$ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i $$
 
 We have a simple random sample of 300 people from the NHIS. We want to know i) the size of B_1 and ii) the direction of B_1. In a linear regression world, we will always adopt a null hypothesis that our independent variable, _x_, is unrelated to our outcome, _y_, or, put another way, that B_1 equals 0.
 
@@ -86,6 +84,6 @@ reg bmi vig10fwk
 
 In the top right corner of the output, we some information about our sample and some measures of our model's fit with the data. Note that the `R-squared` in the output is the ratio of the sum of squared residuals of the model (SSM) to the sum of squared residuals in the sample (SST). This tells us that our model of BMI as a function of _only_ exercise frequency explains about 0.55 percent of the variation of BMI observed in our sample. The top left corner provides the breakdown of the residuals in the sample and model. Note that dividing the Model SS by the Total SS will give you the same answer as the `R-squared` to the right.
 
-Finally, the main event and exciting action is happening in the table at the bottom of the output. Here, each row represents all the estimates of a parameter in our model. In this simple case, we have one independent variable (exercise frequency) and the constant `_cons` in the output), which is the intercept of the model. `Coefficient` gives us our estimated coefficients (B_1 for exercise and B_0 for the intercept), `Std. Err.` provides the standard error associated with that estimated coefficient, `t` provides the calculated t-score associated with the estimated coefficient, `P>|t|` tells us the p-value associated with the t-score, and finally, `95% Conf. Interval` is the 95% confidence interval for each estimate in the model. In short, Stata estimates all of the parameters that we need for statistical inference.
+Finally, the main event and exciting action is happening in the table at the bottom of the output. Here, each row represents all the estimates of a parameter in our model. In this simple case, we have one independent variable (exercise frequency) and the constant `_cons` in the output), which is the intercept of the model. `Coefficient` gives us our estimated coefficients ($\beta_1$ for exercise and $\beta_0$ for the intercept), `Std. Err.` provides the standard error associated with that estimated coefficient, `t` provides the calculated t-score associated with the estimated coefficient, `P>|t|` tells us the p-value associated with the t-score, and finally, `95% Conf. Interval` is the 95% confidence interval for each estimate in the model. In short, Stata estimates all of the parameters that we need for statistical inference.
 
 Here, the output tells us that each additional period of exercise per week that someone adds will, on average, decrease their BMI by about 0.19 points. However, the p-value is quite high (0.202) and the 95% confidence interval includes 0 as a possible value for the true B_1 in the underlying population. Together, these estimates suggest we cannot confidently reject the null hypothesis that there is no statistically meaningful relationship between exercise frequency per week and BMI. Exercise may improve other measures of health, but it does not seem to impact BMI, at least not without accounting for other possible confounders. The low `R-squared` gives us a clue that there might be a lot of other things that affect BMI that we do not observe here. More research is needed to better understand BMI. (HOORAY!!)
