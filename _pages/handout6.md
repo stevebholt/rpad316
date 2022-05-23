@@ -92,16 +92,15 @@ The sort command tells Stata to reorganize the observations according to the val
 
 Comparing the average reading scores of the treatment and control groups, we can see that the treatment group has, on average, higher reading scores at the end of the first year of the study. At least superficially, it looks like students in small classrooms who can theoretically receive more attention from less stressed teachers score about 14 points higher on reading tests than their counterparts in regular classrooms one year into the study. It is possible, however, that the gap we see is attributable to sampling noise or error and different samples would find no difference between the two groups. Since policy changes and public resources might depend on getting this right, we want to rule out this possibility using a two sample hypothesis test against the null hypothesis that the difference between the treatment and control group is really zero. Of course, with the summary statistics for both samples, we already have everything we need to conduct a two sample t-test by hand using our handy formula for a two sample t-statistic:
 
-```
-t = (X-bar1 - X-bar2) / sqrt((s1^2/n1)+(s2^2/n2))
-```
+
+$$ t = \dfrac{(\overline{X_1} - \overline{X_2})}{\sqrt{\frac{s_1^{2}}{n_1}+\frac{s_2^{2}}{n_2}}} $$
+
 
 Plugging in the mean and standard deviation we have from our summary statistics for each sample, we can calculate a t-score:
 
-```
-t = (439.40 - 453.85) / sqrt((26^2/143)+(34.49^2/357)) --> t = (-14.45) / sqrt((676/143)+(1189.56/357)) -->
-t = (-14.45) / sqrt((4.73)+(3.33)) --> t = (-14.45) / sqrt(2.84)  --> t = +(-) 5.09
-```
+
+$$ \dfrac{(439.40 - 453.85)}{\sqrt{\frac{26^{2}}{143}+\frac{34.49^{2}}{357}}} \rightarrow \dfrac{-14.45}{\sqrt{\frac{676}{143}+\frac{1189.56}{357}}} \rightarrow \dfrac{-14.45}{\sqrt{4.73+3.33}} \rightarrow \dfrac{-14.45}{2.84} \rightarrow t = -5.09 $$
+
 
 Note that there was a lot of rounding to two decimal points in my calculation, but the t-score of -5.09 will be a reasonably close approximation of what we would find using more precise calculations. Now, we know that our conventional threshold for alpha to determine statistical significance is 0.05.Our last step will be to use our t-score and degrees of freedom to find our p-value. For our purposes, we will use the smaller degrees of freedom from the two samples, in this case `df = 142`. To calculate the p-value, we will again turn to Stata and use the `display` command to estimate the p-value. Here, the command will take the form of `display 2*ttail(df, t)` where we enter our degrees of freedom and the absolute value of our t-score in place of `df` and `t` respectively. Thus, the code is:
 
