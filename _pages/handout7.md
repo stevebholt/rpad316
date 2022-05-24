@@ -40,10 +40,12 @@ The above code uses the two-way graphing function in Stata, a powerful tool that
 ![Scatter Plot of BMI and Excersize](http://stevebholt.github.io/rpad316/assets/images/scatter2_lab7.png)
 
 Here, Stata has calculated the best fit line for us, and does seem to suggest that more exercise is associated with a slightly lower BMI. Note that calculating the best fit line ourselves would involve first calculating the slope:
-![Slope Formula](http://stevebholt.github.io/rpad316/assets/images/bestfit_slope.PNG)
+
+$$ \beta_1 = \dfrac{\sum (x_i - \overline{X})(y_i - \overline{Y})}{\sum (x_i - \overline{X})^2} $$
 
 ...and then using the basic form of a line to calculate the intercept:
-![Intercept Formula](http://stevebholt.github.io/rpad316/assets/images/bestfit_intercept.PNG)
+
+$$ \beta_0 = \overline{Y} - \beta_1 \overline{X} $$
 
 Now, we know our line is just based on a sample and could be incorrect due to sampling error. We can also have Stata add the confidence interval of the line to see the range in which we can be 95% confident the true population relationship between BMI and exercise rests:
 
@@ -54,7 +56,7 @@ graph twoway (lfitci bmi vig10fwk) (scatter bmi vig10fwk)
 Simply adding `ci` to the `lfit` command will tell Stata to include confidence intervals in the graph of the best fit line. The default in Stata is 95% C.I.'s, but you can use options to change the default.
 ![Scatter Plot of BMI and Excersize](http://stevebholt.github.io/rpad316/assets/images/scatter3_lab7.png)
 
-We can see the confidence interval plotted in the lighter grey area, which captures the confidence interval in our estimated value of Y (here, BMI) for each value of X (here, number of exercise periods per week). Note that each point on the line has a specific BMI value, Y-hat_i, which is the predicted value of _BMI_ for each number of exercises per week based on our sample.
+We can see the confidence interval plotted in the lighter grey area, which captures the confidence interval in our estimated value of Y (here, BMI) for each value of X (here, number of exercise periods per week). Note that each point on the line has a specific BMI value, $\hat{Y}_i$, which is the predicted value of _BMI_ for each number of exercises per week based on our sample.
 
 As always, we want something more precise than an eyeball guess at a graph. Moreover, we might have an even harder time reading a graph if the sample is larger than 300. For that reason, we use our data to estimate the exact value of the slope and estimate a standard error that we can use for inference. Doing this in Stata is simple:
 
