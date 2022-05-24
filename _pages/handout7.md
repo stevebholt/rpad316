@@ -41,7 +41,7 @@ The above code uses the two-way graphing function in Stata, a powerful tool that
 
 Here, Stata has calculated the best fit line for us, and does seem to suggest that more exercise is associated with a slightly lower BMI. Note that calculating the best fit line ourselves would involve first calculating the slope:
 
-$$ \beta_1 = \dfrac{\sum (X_i - \overline{X})(Y_i - \overline{Y})}{\sum (X_i - \overline{X})^2} $$
+$$ \beta_1 = \dfrac{\sum (x_i - \overline{X})(y_i - \overline{Y})}{\sum (x_i - \overline{X})^2} $$
 
 ...and then using the basic form of a line to calculate the intercept:
 
