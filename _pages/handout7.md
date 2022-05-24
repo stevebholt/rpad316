@@ -12,14 +12,14 @@ To illustrate the concepts and uses of linear regression for analysis, we will b
 $$ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i $$
 
 
-where every additional period of exercise a person _i_ engages in will yield a change of _BMI_ equal to B_1.
+where every additional period of exercise a person _i_ engages in will yield a change of _BMI_ equal to $\beta_1$.
 
 ## Continuous Outcome and Continuous Independent Variable
 Beginning with our first model, the link between BMI and exercise, we have a theory that the relationship in the population looks like:
 
 $$ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i $$
 
-We have a simple random sample of 300 people from the NHIS. We want to know i) the size of B_1 and ii) the direction of B_1. In a linear regression world, we will always adopt a null hypothesis that our independent variable, _x_, is unrelated to our outcome, _y_, or, put another way, that B_1 equals 0.
+We have a simple random sample of 300 people from the NHIS. We want to know i) the size of $\beta_1$ and ii) the direction of $\beta_1$. In a linear regression world, we will always adopt a null hypothesis that our independent variable, _x_, is unrelated to our outcome, _y_, or, put another way, that $\beta_1$ equals 0.
 
 Let's begin by looking at a scatter plot of exercise and BMI from our sample. Remember that in Stata, the dependent variable (_Y_) always comes first in the code.
 
@@ -30,7 +30,7 @@ scatter bmi vig10fwk
 We should get something like:
 ![Scatter Plot of BMI and Excersize](http://stevebholt.github.io/rpad316/assets/images/scatter1_lab7.png)
 
-Visually, we can kind of see a small negative direction in the data. The dots farther out in the x-axis seem to be lower on the y-axis, which suggests that those who exercise more have a lower BMI. Importantly, each plot point represents the observed BMI (Y_i) and observed exercise frequency (X_i) for each individual in our sample. Let's add the best fit line to better see the relationship in our sample.
+Visually, we can kind of see a small negative direction in the data. The dots farther out in the x-axis seem to be lower on the y-axis, which suggests that those who exercise more have a lower BMI. Importantly, each plot point represents the observed BMI ($Y_i$) and observed exercise frequency ($X_i$) for each individual in our sample. Let's add the best fit line to better see the relationship in our sample.
 
 ```
 graph twoway (lfit bmi vig10fwk) (scatter bmi vig10fwk)
@@ -41,7 +41,7 @@ The above code uses the two-way graphing function in Stata, a powerful tool that
 
 Here, Stata has calculated the best fit line for us, and does seem to suggest that more exercise is associated with a slightly lower BMI. Note that calculating the best fit line ourselves would involve first calculating the slope:
 
-$$ \beta_1 = \dfrac{\sum (x_i - \overline{X})(y_i - \overline{Y})}{\sum (x_i - \overline{X})^2} $$
+$$ \beta_1 = \dfrac{\sum (X_i - \overline{X})(Y_i - \overline{Y})}{\sum (X_i - \overline{X})^2} $$
 
 ...and then using the basic form of a line to calculate the intercept:
 
@@ -88,4 +88,4 @@ In the top right corner of the output, we some information about our sample and 
 
 Finally, the main event and exciting action is happening in the table at the bottom of the output. Here, each row represents all the estimates of a parameter in our model. In this simple case, we have one independent variable (exercise frequency) and the constant `_cons` in the output), which is the intercept of the model. `Coefficient` gives us our estimated coefficients ($\beta_1$ for exercise and $\beta_0$ for the intercept), `Std. Err.` provides the standard error associated with that estimated coefficient, `t` provides the calculated t-score associated with the estimated coefficient, `P>|t|` tells us the p-value associated with the t-score, and finally, `95% Conf. Interval` is the 95% confidence interval for each estimate in the model. In short, Stata estimates all of the parameters that we need for statistical inference.
 
-Here, the output tells us that each additional period of exercise per week that someone adds will, on average, decrease their BMI by about 0.19 points. However, the p-value is quite high (0.202) and the 95% confidence interval includes 0 as a possible value for the true B_1 in the underlying population. Together, these estimates suggest we cannot confidently reject the null hypothesis that there is no statistically meaningful relationship between exercise frequency per week and BMI. Exercise may improve other measures of health, but it does not seem to impact BMI, at least not without accounting for other possible confounders. The low `R-squared` gives us a clue that there might be a lot of other things that affect BMI that we do not observe here. More research is needed to better understand BMI. (HOORAY!!)
+Here, the output tells us that each additional period of exercise per week that someone adds will, on average, decrease their BMI by about 0.19 points. However, the p-value is quite high (0.202) and the 95% confidence interval includes 0 as a possible value for the true $\beta_1$ in the underlying population. Together, these estimates suggest we cannot confidently reject the null hypothesis that there is no statistically meaningful relationship between exercise frequency per week and BMI. Exercise may improve other measures of health, but it does not seem to impact BMI, at least not without accounting for other possible confounders. The low `R-squared` gives us a clue that there might be a lot of other things that affect BMI that we do not observe here. More research is needed to better understand BMI. (HOORAY!!)
