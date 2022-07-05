@@ -24,7 +24,7 @@ The lecture slides each week can be found here.
 [Slides](https://stevebholt.github.io/rpad316/assets/documents/review.pdf){: .btn .btn--info}
 
 # Week 6 
-[Slides](https://stevebholt.github.io/rpad316/assets/documents/week6.pdf){: .btn .btn--info} [Class Exercise](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise.docx), [Class Exercise Solutions](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise_solutions.pdf){: .btn .btn--info}
+[Slides](https://stevebholt.github.io/rpad316/assets/documents/week6.pdf){: .btn .btn--info} [Class Exercise](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise.docx){: .btn .btn--info} [Class Exercise Solutions](https://stevebholt.github.io/rpad316/assets/documents/Class_exercise_solutions.pdf){: .btn .btn--info}
 
 # Week 7 
 [Slides](https://stevebholt.github.io/rpad316/assets/documents/week7.pdf){: .btn .btn--info}
