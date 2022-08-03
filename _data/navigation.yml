@@ -9,7 +9,7 @@ main:
     url: /assignments/
 
 docs:
-  - title: Labs
+  - title: "Labs"
     children: 
 
       - title: "Class Lab 1"
