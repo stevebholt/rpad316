@@ -87,7 +87,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      sidebar:
+      sidebar: true
         nav: "docs"
 
 category_archive:
