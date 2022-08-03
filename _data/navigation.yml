@@ -6,4 +6,17 @@ main:
   - title: "Lectures"
     url: /lectures/    
   - title: "Assignments"
-    url: /assignments/    
+    url: /assignments/
+
+docs:
+  - title: Labs
+    children: 
+
+      - title: "Class Lab 1"
+        url: /labs/class-lab-1/
+
+  - title: Assignments
+    children:
+
+      - title: "Problem Sets"
+      url: /assignments/    
