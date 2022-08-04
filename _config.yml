@@ -56,7 +56,7 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-author: false
+author: 
   name   : "Stephen B. Holt"
   avatar : "/assets/images/profile.png"
   bio    : "Associate Professor of Public Management, University at Albany, SUNY"
