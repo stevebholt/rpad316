@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "About"
-sidebar:
+sidebar: true
 	nav: "docs"
 ---
 
