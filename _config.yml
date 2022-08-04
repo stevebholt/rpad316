@@ -56,14 +56,14 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-#author:
- # name   : "Stephen B. Holt"
-  #avatar : "/assets/images/profile.png"
-  #bio    : "Associate Professor of Public Management, University at Albany, SUNY"
-  #links:
-  #  - label: "Website"
-  #    icon: "fas fa-fw fa-link"
-  #    url: "https://stevebholt.github.io"
+author: false
+  name   : "Stephen B. Holt"
+  avatar : "/assets/images/profile.png"
+  bio    : "Associate Professor of Public Management, University at Albany, SUNY"
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://stevebholt.github.io"
 
 #footer:
 
